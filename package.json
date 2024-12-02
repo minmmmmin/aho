@@ -1,9 +1,8 @@
 {
-  "name": "server-tutorial",
+  "name": "ahoaho-generator",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "vite.config.js",
   "scripts": {
-    "serve": "netlify functions:serve",
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview"
@@ -11,14 +10,13 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "description": "",
   "dependencies": {
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },
   "devDependencies": {
-    "@vitejs/plugin-react": "^4.3.3",
-    "netlify-cli": "^17.37.2",
-    "vite": "^5.4.10"
-  },
-  "description": ""
+    "@vitejs/plugin-react": "^4.3.4",
+    "vite": "^6.0.1"
+  }
 }

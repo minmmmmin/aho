@@ -9,7 +9,7 @@ export default function App() {
         setIsLoading(true);
         setError(null);
         try {
-            const response = await fetch("https://v2.jokeapi.dev/joke/Any?blacklistFlags=nsfw");
+            const response = await fetch("https://v2.jokeapi.dev/joke/Any?blacklistFlags=nsfw,religious,political,racist,sexist&type=single");
             if (!response.ok) {
                 throw new Error("ジョークを取得できませんでした");
             }
