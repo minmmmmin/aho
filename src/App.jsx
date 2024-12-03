@@ -41,9 +41,6 @@ export default function App() {
           ? data.joke
           : `${data.setup} ... ${data.delivery}`;
       setJoke(jokeText);
-      const randomImage =
-        imagePaths[Math.floor(Math.random() * imagePaths.length)];
-      setImage(randomImage);
     } catch (err) {
       console.error(err);
       setError(err.message);
@@ -51,6 +48,10 @@ export default function App() {
       setIsLoading(false);
     }
   };
+
+  const randomImage = 
+  imagePaths[Math.floor(Math.random() * imagePaths.length)];
+  
 
   useEffect(() => {
     fetchJoke();
@@ -62,10 +63,14 @@ export default function App() {
       {isLoading && <p>読み込み中...</p>}
       {error && <p style={{ color: "red" }}>{error}</p>}
       {joke && <p>{joke}</p>}
+      <img src = {image}></img>
       <button onClick={fetchJoke} style={{ marginTop: "20px" }}>
         新しいジョークを取得
       </button>
-      <img src = {image}></img>
+
+      <button onClick={null} style={{ marginTop: "20px" }}>
+        動物を変更
+      </button>
     
     </div>
   );
