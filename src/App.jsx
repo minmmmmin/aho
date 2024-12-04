@@ -49,12 +49,17 @@ export default function App() {
     }
   };
 
-  const randomImage = 
-  imagePaths[Math.floor(Math.random() * imagePaths.length)];
+  const changeImage = () => {
+    const randomImage = 
+    imagePaths[Math.floor(Math.random() * imagePaths.length)];
+    setImage(randomImage);
+  };
+  
   
 
   useEffect(() => {
     fetchJoke();
+    changeImage();
   }, []);
 
   return (
@@ -62,13 +67,13 @@ export default function App() {
       <h1>Joke Generator</h1>
       {isLoading && <p>読み込み中...</p>}
       {error && <p style={{ color: "red" }}>{error}</p>}
-      {joke && <p>{joke}</p>}
-      <img src = {image}></img>
+      <img src={image} style={{ maxWidth: "200px" }}/>
+      <p>{joke}</p>
       <button onClick={fetchJoke} style={{ marginTop: "20px" }}>
         新しいジョークを取得
       </button>
 
-      <button onClick={null} style={{ marginTop: "20px" }}>
+      <button onClick={changeImage}>
         動物を変更
       </button>
     
