@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 export default function App() {
   const [joke, setJoke] = useState(null); // ジョークを保存
-  const [isLoading, setIsLoading] = useState(true); // 読み込み中の状態
+  // const [isLoading, setIsLoading] = useState(true); // 読み込み中の状態
   const [error, setError] = useState(null); // エラーを保存
   const [image,setImage] = useState(null);
 
@@ -26,7 +26,7 @@ export default function App() {
   ];
 
   const fetchJoke = async () => {
-    setIsLoading(true);
+    // setIsLoading(true);
     setError(null);
     try {
       const response = await fetch(
@@ -64,8 +64,8 @@ export default function App() {
 
   return (
     <div style={{ textAlign: "center", marginTop: "20px" }}>
-      <h1>Joke Generator</h1>
-      {isLoading && <p>読み込み中...</p>}
+      <h1>ahoaho Generator</h1>
+      {/* {isLoading && <p>読み込み中...</p>} */}
       {error && <p style={{ color: "red" }}>{error}</p>}
       <img src={image} style={{ maxWidth: "200px" }}/>
       <p>{joke}</p>
