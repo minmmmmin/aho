@@ -44,8 +44,8 @@ export default function App() {
     } catch (err) {
       console.error(err);
       setError(err.message);
-    } finally {
-      setIsLoading(false);
+    // } finally {
+      // setIsLoading(false);
     }
   };
 
