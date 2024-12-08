@@ -34,7 +34,7 @@ export default function App() {
     setError(null);
     try {
       const response = await fetch(
-        "https://v2.jokeapi.dev/joke/Any?blacklistFlags=nsfw,religious,political,racist,sexist,explicit&type=single"
+        "https://v2.jokeapi.dev/joke/Any?blacklistFlags=nsfw,religious,political,racisist,explicit&type=single"
       );
       if (!response.ok) {
         throw new Error("ジョークを取得できませんでした");
@@ -70,12 +70,11 @@ export default function App() {
     <div style={{ textAlign: "center", marginTop: "20px" }}>
       <h1>ahoaho Generator</h1>
       {/* {isLoading && <p>読み込み中...</p>} */}
-      {error && <p style={{ color: "red" }}>{error}</p>}
-
       <div className="container">
         <img src={image} alt="ahoaho-Animal" />
 
-        <p className="joke">{joke}</p> {/* 吹き出しはこのpタグだけに適用 */}
+        {error && <p className="joke" style={{ color: "red" }}>{error}</p>}
+        {!error &&<p className="joke">{joke}</p>} {/* 吹き出しはこのpタグだけに適用。!errorってしたらエラーじゃない時に出るようになる->二重吹き出しを防げる */}
 
       </div>
 
