@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import Footer from "./components/Footer";
 import { Button } from "@mui/material";
 import LoadingButton from "@mui/lab/LoadingButton";
 
@@ -77,6 +78,7 @@ export default function App() {
       </div>
 
       <div className="button">
+      {/* ロードボタンできたのうれしいけど需要はないかも */}
       <LoadingButton
           loading={isLoading}
           variant="contained"
@@ -90,6 +92,7 @@ export default function App() {
           動物を変更
           </Button>
       </div>
+    <Footer />
     </div>
   );
 }
