@@ -60,7 +60,7 @@ export default function App() {
   const changeImage = async () => {
     setAnimalLoading(true);
     try {
-      await new Promise((resolve) => setTimeout(resolve, 500));
+      await new Promise((resolve) => setTimeout(resolve, 1000));
       const randomImage =
         imagePaths[Math.floor(Math.random() * imagePaths.length)];
       setImage(randomImage);
