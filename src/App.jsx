@@ -8,7 +8,7 @@ export default function App() {
   // const [isLoading, setIsLoading] = useState(true); // 読み込み中の状態
   const [error, setError] = useState(null); // エラーを保存
   const [image,setImage] = useState(null);
-  const [isLoading, setIsLoading] = useState(false);
+  const [jokeLoading, setJokeLoading] = useState(false);
   const [animalLoading, setAnimalLoading] = useState(false);
 
   const imagePaths = [//コピーしてきたパスだと怒られるのはなんでなのか
@@ -31,7 +31,7 @@ export default function App() {
   ];
 
   const fetchJoke = async () => {
-    setIsLoading(true);
+    setJokeLoading(true);
     setError(null);
     try {
       const response = await fetch(
@@ -50,7 +50,7 @@ export default function App() {
       console.error(err);
       setError(err.message);
     } finally {
-      setIsLoading(false);
+      setJokeLoading(false);
     }
   };
 
