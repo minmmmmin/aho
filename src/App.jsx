@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Footer from "./components/Footer";
 import { Button } from "@mui/material";
 import LoadingButton from "@mui/lab/LoadingButton";
+import CustomLoadingButton from "./components/LoadingButton";
 
 export default function App() {
   const [joke, setJoke] = useState(null); // ジョークを保存
@@ -92,26 +93,14 @@ export default function App() {
       </div>
 
       <div className="button">
-      {/* ロードボタンできたのうれしいけど需要はないかも */}
-      <LoadingButton
-          loading={jokeLoading}
-          variant="contained"
-          onClick={fetchJoke}
-          style={{ marginTop: "20px" }}
-        >
+        <CustomLoadingButton loading={jokeLoading} onClick={fetchJoke}>
           新しいジョークを取得
-        </LoadingButton>
-
-        <LoadingButton
-          loading={animalLoading} 
-          variant="contained"
-          onClick={changeImage}
-          style={{ marginTop: "20px" }}
-        >
+        </CustomLoadingButton>
+        <CustomLoadingButton loading={animalLoading} onClick={changeImage}>
           動物を変更
-          </LoadingButton>
+        </CustomLoadingButton>
       </div>
-    <Footer />
+      <Footer />
     </div>
   );
 }
