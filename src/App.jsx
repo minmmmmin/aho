@@ -34,7 +34,7 @@ export default function App() {
     setError(null);
     try {
       const response = await fetch(
-        "https://v2.jokeapi.dev/joke/Any?blacklistFlags=nsfw,religious,political,racisist,explicit&type=single"
+        "https://v2.jokeapi.dev/joke/Any?blacklistFlags=nsfw,religious,political,racist,sexist&type=single"
       );
       if (!response.ok) {
         throw new Error("ジョークを取得できませんでした");
