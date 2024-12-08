@@ -61,16 +61,18 @@ export default function App() {
     setAnimalLoading(true);
     try {
       await new Promise((resolve) => setTimeout(resolve, 1000));
-      const randomImage =
-        imagePaths[Math.floor(Math.random() * imagePaths.length)];
+      let randomImage = image; // 初期値を現在の画像に設定しておく
+      while (randomImage === image) {
+        randomImage = imagePaths[Math.floor(Math.random() * imagePaths.length)];
+      }
       setImage(randomImage);
     } catch (err) {
       console.error("画像変更に失敗しました:", err);
     } finally {
       setAnimalLoading(false);
     }
-  };
-  
+  };  
+
 
   useEffect(() => {
     fetchJoke();
