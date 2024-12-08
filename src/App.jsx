@@ -9,6 +9,7 @@ export default function App() {
   const [error, setError] = useState(null); // エラーを保存
   const [image,setImage] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
+  const [animalLoading, setanimalLoading] = useState(false);
 
   const imagePaths = [//コピーしてきたパスだと怒られるのはなんでなのか
     "images/hebi.PNG",
@@ -54,9 +55,11 @@ export default function App() {
   };
 
   const changeImage = () => {
+    setanimalLoading(true);
     const randomImage = 
     imagePaths[Math.floor(Math.random() * imagePaths.length)];
     setImage(randomImage);
+    setanimalLoading(false);
   };
   
   
@@ -79,6 +82,7 @@ export default function App() {
       </div>
 
       <div className="button">
+        
       {/* ロードボタンできたのうれしいけど需要はないかも */}
       <LoadingButton
           loading={isLoading}
@@ -89,9 +93,14 @@ export default function App() {
           新しいジョークを取得
         </LoadingButton>
 
-        <Button variant="contained" onClick={changeImage}>
+        <LoadingButton
+          loading={animalLoading} 
+          variant="contained"
+          onClick={changeImage}
+          style={{ marginTop: "20px" }}
+        >
           動物を変更
-          </Button>
+          </LoadingButton>
       </div>
     <Footer />
     </div>
