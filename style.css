@@ -17,7 +17,6 @@ body {
 .container img {
   max-width: 150px; /* 必要に応じて調整 */
   height: auto;
-  border-radius: 5px; /* 画像の角を少し丸くする */
 }
 
 p {

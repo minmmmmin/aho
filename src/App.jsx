@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
 import { Button } from "@mui/material";
+import LoadingButton from "@mui/lab/LoadingButton";
 
 export default function App() {
   const [joke, setJoke] = useState(null); // ジョークを保存
   // const [isLoading, setIsLoading] = useState(true); // 読み込み中の状態
   const [error, setError] = useState(null); // エラーを保存
   const [image,setImage] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
 
   const imagePaths = [//コピーしてきたパスだと怒られるのはなんでなのか
     "images/hebi.PNG",
@@ -27,7 +29,7 @@ export default function App() {
   ];
 
   const fetchJoke = async () => {
-    // setIsLoading(true);
+    setIsLoading(true);
     setError(null);
     try {
       const response = await fetch(
@@ -45,8 +47,8 @@ export default function App() {
     } catch (err) {
       console.error(err);
       setError(err.message);
-    // } finally {
-      // setIsLoading(false);
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -70,14 +72,19 @@ export default function App() {
       {error && <p style={{ color: "red" }}>{error}</p>}
 
       <div className="container">
-        <img src={image} alt="動物の画像" />
+        <img src={image} alt="ahoaho-Animal" />
         <p>{joke}</p>
       </div>
 
       <div className="button">
-        <Button variant="contained" onClick={fetchJoke} style={{ marginTop: "20px" }}>
+      <LoadingButton
+          loading={isLoading}
+          variant="contained"
+          onClick={fetchJoke}
+          style={{ marginTop: "20px" }}
+        >
           新しいジョークを取得
-        </Button>
+        </LoadingButton>
 
         <Button variant="contained" onClick={changeImage}>
           動物を変更
