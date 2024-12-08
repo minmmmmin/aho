@@ -42,10 +42,13 @@ export default function App() {
         throw new Error("ジョークを取得できませんでした");
       }
       const data = await response.json();
-      const jokeText =
-        data.type === "single"
-          ? data.joke
-          : `${data.setup} ... ${data.delivery}`;
+      
+      let jokeText;
+      if (data.type === "single") {
+        jokeText = data.joke;
+      } else {
+        jokeText = `${data.setup} ... ${data.delivery}`;
+      }
       setJoke(jokeText);
     } catch (err) {
       console.error(err);
@@ -54,10 +57,9 @@ export default function App() {
       setJokeLoading(false);
     }
   };
-
+  
   // こういう時のための非同期処理なのね意図的に 500ms した後に画像をランダムに選ぶ処理を入れることでロード演出が出るようになる。
   //jokeのほうはAPIの所得分があるのでそういう作業はしなくてもいい。めんどくせーーやんなきゃよかったな
-
   const changeImage = async () => {
     setAnimalLoading(true);
     try {
