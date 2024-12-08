@@ -67,8 +67,12 @@ export default function App() {
       <h1>ahoaho Generator</h1>
       {/* {isLoading && <p>読み込み中...</p>} */}
       {error && <p style={{ color: "red" }}>{error}</p>}
-      <img src={image} style={{ maxWidth: "200px" }}/>
-      <p>{joke}</p>
+
+      <div className="container">
+        <img src={image} alt="動物の画像" />
+        <p>{joke}</p>
+      </div>
+      
       <button onClick={fetchJoke} style={{ marginTop: "20px" }}>
         新しいジョークを取得
       </button>
