@@ -74,14 +74,15 @@ export default function App() {
         <p>{joke}</p>
       </div>
 
-      <Button onClick={fetchJoke} style={{ marginTop: "20px" }}>
-        新しいジョークを取得
-      </Button>
+      <div className="button">
+        <Button variant="contained" onClick={fetchJoke} style={{ marginTop: "20px" }}>
+          新しいジョークを取得
+        </Button>
 
-      <Button onClick={changeImage}>
-        動物を変更
-      </Button>
-    
+        <Button variant="contained" onClick={changeImage}>
+          動物を変更
+          </Button>
+      </div>
     </div>
   );
 }
