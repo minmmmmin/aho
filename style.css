@@ -19,7 +19,7 @@ body {
   height: auto;
 }
 
-p {
+.joke {
   position: relative;
   display: inline-block;
   margin: 0;
@@ -34,7 +34,7 @@ p {
   word-wrap: break-word;
 }
 
-p:before {
+.joke:before {
   content: "";
   position: absolute;
   top: 50%;
@@ -45,7 +45,7 @@ p:before {
   z-index: 2;
 }
 
-p:after {
+.joke:after {
   content: "";
   position: absolute;
   top: 50%;

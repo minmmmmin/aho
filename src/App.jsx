@@ -74,7 +74,9 @@ export default function App() {
 
       <div className="container">
         <img src={image} alt="ahoaho-Animal" />
-        <p>{joke}</p>
+
+        <p className="joke">{joke}</p> {/* 吹き出しはこのpタグだけに適用 */}
+        
       </div>
 
       <div className="button">
