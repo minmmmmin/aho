@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Button } from "@mui/material";
 
 export default function App() {
   const [joke, setJoke] = useState(null); // ジョークを保存
@@ -72,14 +73,14 @@ export default function App() {
         <img src={image} alt="動物の画像" />
         <p>{joke}</p>
       </div>
-      
-      <button onClick={fetchJoke} style={{ marginTop: "20px" }}>
-        新しいジョークを取得
-      </button>
 
-      <button onClick={changeImage}>
+      <Button onClick={fetchJoke} style={{ marginTop: "20px" }}>
+        新しいジョークを取得
+      </Button>
+
+      <Button onClick={changeImage}>
         動物を変更
-      </button>
+      </Button>
     
     </div>
   );
