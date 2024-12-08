@@ -54,16 +54,22 @@ export default function App() {
     }
   };
 
-  // こういう時のための非同期処理なのね
+  // こういう時のための非同期処理なのね意図的に 500ms した後に画像をランダムに選ぶ処理を入れることでロード演出が出るようになる。
+  //jokeのほうはAPIの所得分があるのでそういう作業はしなくてもいい。めんどくせーーやんなきゃよかったな
 
-  const changeImage = () => {
+  const changeImage = async () => {
     setAnimalLoading(true);
-    const randomImage = 
-    imagePaths[Math.floor(Math.random() * imagePaths.length)];
-    setImage(randomImage);
-    setAnimalLoading(false);
+    try {
+      await new Promise((resolve) => setTimeout(resolve, 500));
+      const randomImage =
+        imagePaths[Math.floor(Math.random() * imagePaths.length)];
+      setImage(randomImage);
+    } catch (err) {
+      console.error("画像変更に失敗しました:", err);
+    } finally {
+      setAnimalLoading(false);
+    }
   };
-  
   
 
   useEffect(() => {
@@ -86,7 +92,7 @@ export default function App() {
       <div className="button">
       {/* ロードボタンできたのうれしいけど需要はないかも */}
       <LoadingButton
-          loading={isLoading}
+          loading={jokeLoading}
           variant="contained"
           onClick={fetchJoke}
           style={{ marginTop: "20px" }}
