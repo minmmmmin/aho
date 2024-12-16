@@ -8,7 +8,7 @@ export default function App() {
     <div style={{ textAlign: "center", marginTop: "20px" }}>
       <Header />
       <h1>あほっこ動物</h1>
-      <div className="joke">
+      <div>
         <Joke />
       </div>
       <div className="news">
