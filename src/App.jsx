@@ -3,8 +3,7 @@ import Footer from "./components/Footer";
 import { Button } from "@mui/material";
 import LoadingButton from "@mui/lab/LoadingButton";
 import CustomLoadingButton from "./components/LoadingButton";
-
-import News from "./components/news";//なんか大文字だと怒られる
+import News from "./components/News";
 import Header from "./components/Header";
 
 export default function App() {
