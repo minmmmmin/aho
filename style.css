@@ -1,10 +1,17 @@
 body {
-  font-family: helvetica, sans-serif;
+  font-family: 'Hanazome', sans-serif;
   justify-content: center;
   align-items: center;
   height: 100vh;
   margin: 0;
   background-color: #f8f8f8;
+}
+
+@font-face {
+  font-family: 'Hanazome';
+  src: url('hanazome.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
 }
 
 .container {
@@ -65,5 +72,6 @@ body {
 }
 
 .news {
+  font-family: 'Hanazome', sans-serif;
   text-align: left;
 }
