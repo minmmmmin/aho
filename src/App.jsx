@@ -5,6 +5,7 @@ import LoadingButton from "@mui/lab/LoadingButton";
 import CustomLoadingButton from "./components/LoadingButton";
 
 import News from "./components/news";//なんか大文字だと怒られる
+import Header from "./components/Header";
 
 export default function App() {
   const [joke, setJoke] = useState(null); // ジョークを保存
@@ -86,7 +87,8 @@ export default function App() {
 
   return (
     <div style={{ textAlign: "center", marginTop: "20px" }}>
-      <h1>ahoaho Generator</h1>
+       <Header />
+      <h1>あほっこ動物</h1>
       {/* {isLoading && <p>読み込み中...</p>} */}
       <div className="container">
         <img src={image} alt="ahoaho-Animal" />
