@@ -105,7 +105,9 @@ export default function App() {
         </CustomLoadingButton>
       </div>
 
+      <div className="news">
       <News />
+      </div>
 
       <Footer />
     </div>
