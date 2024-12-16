@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react";
-import CustomLoadingButton from "./components/LoadingButton";
+import { useState, useEffect } from "react";
+import CustomLoadingButton from "./LoadingButton";
 
-export default function App() {
+export default function Joke() {
   const [joke, setJoke] = useState(null); // ジョークを保存
   // const [isLoading, setIsLoading] = useState(true); // 読み込み中の状態
   const [error, setError] = useState(null); // エラーを保存
@@ -79,7 +79,7 @@ export default function App() {
   }, []);
 
   return (
-    <div style={{ textAlign: "center", marginTop: "20px" }}>
+    <div>
       <div className="container">
         <img src={image} alt="ahoaho-Animal" />
 
