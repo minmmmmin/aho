@@ -24,6 +24,14 @@ function NewsPage() {
 
 export default function App() {
   return (
+    <div>
+    {/* 画像の表示 */}
+    <img
+      src="/images/aho.png"
+      alt="Aho image"
+      style={{ display: "block", margin: "0 auto", width: "800px" }}
+    />
+
     <Router>
       <Header />
       <div style={{ textAlign: "center", marginTop: "20px" }}>
@@ -34,5 +42,6 @@ export default function App() {
       </div>
       <Footer />
     </Router>
+    </div>
   );
 }
