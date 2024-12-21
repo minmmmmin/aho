@@ -26,10 +26,6 @@ export default function App() {
   return (
     <Router>
       <Header />
-      <nav>
-        <Link to="/">ホーム</Link>
-        <Link to="/news">ミニゲーム</Link>
-      </nav>
       <div style={{ textAlign: "center", marginTop: "20px" }}>
         <Routes>
           <Route path="/" element={<Home />} />
