@@ -3,6 +3,7 @@ import Footer from "./components/Footer";
 import Header from "./components/Header";
 import Joke from "./components/Joke";
 import News from "./components/News";
+import About from "./components/About";
 
 function Home() {
   return (
@@ -22,14 +23,22 @@ function NewsPage() {
   );
 }
 
+function About_aho() {
+  return (
+    <div>
+      <h1>あほっこ動物とは</h1>
+      <About />
+    </div>
+  );
+}
+
 export default function App() {
   return (
     <div>
-    {/* 画像の表示 */}
     <img
       src="/images/aho.png"
       alt="Aho image"
-      style={{ display: "block", margin: "0 auto", width: "800px" }}
+      style={{ display: "block", margin: "0 auto", width: "1500px" }}
     />
 
     <Router>
@@ -38,6 +47,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/news" element={<NewsPage />} />
+          <Route path="/about" element={<About_aho />} />
         </Routes>
       </div>
       <Footer />

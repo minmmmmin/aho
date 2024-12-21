@@ -15,6 +15,7 @@ export default function Header() {
             gap: "20px",
           }}
         >
+                  
           <Typography
             component={Link}
             to="/"
@@ -28,6 +29,22 @@ export default function Header() {
           >
             ホーム
           </Typography>
+
+          
+          <Typography
+            component={Link}
+            to="/about"
+            sx={{
+              textDecoration: "none",
+              color: "black",
+              fontSize: "16px",
+              fontWeight: "bold",
+              "&:hover": { color: "blue" },
+            }}
+          >
+            しょうかい
+          </Typography>
+
           <Typography
             component={Link}
             to="/news"
