@@ -12,7 +12,7 @@ export default function Header() {
             justifyContent: "center",
             alignItems: "center",
             width: "100%",
-            gap: "20px",
+            gap: "24px",
           }}
         >
                   
@@ -23,7 +23,7 @@ export default function Header() {
               fontFamily: 'Hanazome',
               textDecoration: "none",
               color: "black",
-              fontSize: "18px",
+              fontSize: "24px",
               fontWeight: "bold",
               "&:hover": { color: "blue" },
             }}
@@ -39,7 +39,7 @@ export default function Header() {
               fontFamily: 'Hanazome',
               textDecoration: "none",
               color: "black",
-              fontSize: "18px",
+              fontSize: "24px",
               fontWeight: "bold",
               "&:hover": { color: "blue" },
             }}
@@ -54,7 +54,7 @@ export default function Header() {
               fontFamily: 'Hanazome',
               textDecoration: "none",
               color: "black",
-              fontSize: "18px",
+              fontSize: "24px",
               fontWeight: "bold",
               "&:hover": { color: "blue" },
             }}
@@ -69,7 +69,7 @@ export default function Header() {
               fontFamily: 'Hanazome',
               textDecoration: "none",
               color: "black",
-              fontSize: "18px",
+              fontSize: "24px",
               fontWeight: "bold",
               "&:hover": { color: "blue" },
             }}
@@ -84,7 +84,7 @@ export default function Header() {
               fontFamily: 'Hanazome',
               textDecoration: "none",
               color: "black",
-              fontSize: "18px",
+              fontSize: "24px",
               fontWeight: "bold",
               "&:hover": { color: "blue" },
             }}

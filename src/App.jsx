@@ -62,9 +62,9 @@ export default function App() {
     </div>
 
     <img
-      src="/images/aho.png"
+      src="/images/aho (2).png"
       alt="Aho image"
-      style={{ display: "block", margin: "0 auto", width: "1500px" }}
+      style={{ display: "block", margin: "0 auto", width: "1800px" }}
     />
 
     <Router>
