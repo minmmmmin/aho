@@ -49,14 +49,14 @@ const Question = () => {
         {news.contents.map((announcement) => (
           <Box key={announcement.id} mb={4}>
             <Box display="flex" alignItems="center" mb={1}>
-              <Typography variant="body2" color="textSecondary" mr={2} fontFamily='Hanazome'>
+              <Typography variant="body2" color="textSecondary" mr={2} fontFamily='Hanazome' textAlign="left">
                 {new Date(announcement.publishedAt).toLocaleDateString()}
               </Typography>
             </Box>
-            <Typography variant="h5" component="h2" gutterBottom fontFamily='Hanazome'>
+            <Typography variant="h5" component="h2" gutterBottom fontFamily='Hanazome' textAlign="left">
               {announcement.title}
             </Typography>
-            <Typography variant="body1" component="div" gutterBottom fontFamily='Hanazome'>
+            <Typography variant="body1" component="div" gutterBottom fontFamily='Hanazome' textAlign="left">
               <span dangerouslySetInnerHTML={{ __html: announcement.content }} />
             </Typography>
             <Divider />
