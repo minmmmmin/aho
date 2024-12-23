@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Container, Typography, Box, Divider, CircularProgress } from "@mui/material";
 
-const News = () => {
+const Question = () => {
   const [news, setNews] = useState(null);
   const [error, setError] = useState(null);
 
@@ -67,4 +67,4 @@ const News = () => {
   );
 };
 
-export default News;
+export default Question;

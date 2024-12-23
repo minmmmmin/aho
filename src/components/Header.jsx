@@ -76,6 +76,22 @@ export default function Header() {
           >
             よくある質問
           </Typography>
+
+          <Typography
+            component={Link}
+            to="/goods"
+            sx={{
+              fontFamily: 'Hanazome',
+              textDecoration: "none",
+              color: "black",
+              fontSize: "18px",
+              fontWeight: "bold",
+              "&:hover": { color: "blue" },
+            }}
+          >
+            グッズ
+          </Typography>
+
         </Box>
       </Toolbar>
     </AppBar>

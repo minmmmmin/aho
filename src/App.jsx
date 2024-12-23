@@ -5,6 +5,7 @@ import Joke from "./components/Joke";
 import News from "./components/News";
 import About from "./components/About";
 import Question from "./components/Question";
+import Goods from "./components/Goods";
 
 
 function Home() {
@@ -43,6 +44,15 @@ function QandA(){
   )
 }
 
+function Aho_Goods(){
+  return(
+    <div>
+      <h1>よくある質問</h1>
+      <Goods />
+    </div>
+  )
+}
+
 export default function App() {
   return (
     <div>
@@ -60,6 +70,7 @@ export default function App() {
           <Route path="/news" element={<NewsPage />} />
           <Route path="/about" element={<About_aho />} />
           <Route path ="/question" element={<QandA />} />
+          <Route path ="/goods" element={<Aho_Goods />} />
         </Routes>
       </div>
       <Footer />
