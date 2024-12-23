@@ -46,20 +46,20 @@ const News = () => {
   return (
     <Container maxWidth="md">
       <Box my={4}>
-        <Typography variant="h4" component="h1" gutterBottom>
+        <Typography variant="h4" component="h1" gutterBottom fontFamily='Hanazome'>
           お知らせ
         </Typography>
         {news.contents.map((announcement) => (
           <Box key={announcement.id} mb={4}>
             <Box display="flex" alignItems="center" mb={1}>
-              <Typography variant="body2" color="textSecondary" mr={2}>
+              <Typography variant="body2" color="textSecondary" mr={2} fontFamily='Hanazome'>
                 {new Date(announcement.publishedAt).toLocaleDateString()}
               </Typography>
             </Box>
-            <Typography variant="h5" component="h2" gutterBottom>
+            <Typography variant="h5" component="h2" gutterBottom fontFamily='Hanazome'>
               {announcement.title}
             </Typography>
-            <Typography variant="body1" component="div" gutterBottom>
+            <Typography variant="body1" component="div" gutterBottom fontFamily='Hanazome'>
               <span dangerouslySetInnerHTML={{ __html: announcement.content }} />
             </Typography>
             <Divider />

@@ -4,6 +4,8 @@ import Header from "./components/Header";
 import Joke from "./components/Joke";
 import News from "./components/News";
 import About from "./components/About";
+import Question from "./components/Question";
+
 
 function Home() {
   return (
@@ -32,6 +34,15 @@ function About_aho() {
   );
 }
 
+function QandA(){
+  return(
+    <div>
+      <h1>よくある質問</h1>
+      <Question />
+    </div>
+  )
+}
+
 export default function App() {
   return (
     <div>
@@ -48,6 +59,7 @@ export default function App() {
           <Route path="/" element={<Home />} />
           <Route path="/news" element={<NewsPage />} />
           <Route path="/about" element={<About_aho />} />
+          <Route path ="/question" element={<QandA />} />
         </Routes>
       </div>
       <Footer />

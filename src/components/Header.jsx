@@ -20,9 +20,10 @@ export default function Header() {
             component={Link}
             to="/"
             sx={{
+              fontFamily: 'Hanazome',
               textDecoration: "none",
               color: "black",
-              fontSize: "16px",
+              fontSize: "18px",
               fontWeight: "bold",
               "&:hover": { color: "blue" },
             }}
@@ -35,9 +36,10 @@ export default function Header() {
             component={Link}
             to="/about"
             sx={{
+              fontFamily: 'Hanazome',
               textDecoration: "none",
               color: "black",
-              fontSize: "16px",
+              fontSize: "18px",
               fontWeight: "bold",
               "&:hover": { color: "blue" },
             }}
@@ -49,14 +51,30 @@ export default function Header() {
             component={Link}
             to="/news"
             sx={{
+              fontFamily: 'Hanazome',
               textDecoration: "none",
               color: "black",
-              fontSize: "16px",
+              fontSize: "18px",
               fontWeight: "bold",
               "&:hover": { color: "blue" },
             }}
           >
             ミニゲーム
+          </Typography>
+
+          <Typography
+            component={Link}
+            to="/question"
+            sx={{
+              fontFamily: 'Hanazome',
+              textDecoration: "none",
+              color: "black",
+              fontSize: "18px",
+              fontWeight: "bold",
+              "&:hover": { color: "blue" },
+            }}
+          >
+            よくある質問
           </Typography>
         </Box>
       </Toolbar>
