@@ -11,7 +11,6 @@ import Goods from "./components/Goods";
 function Home() {
   return (
     <div>
-      <h1>あほっこ動物</h1>
       <News />
     </div>
   );
@@ -55,7 +54,13 @@ function Aho_Goods(){
 
 export default function App() {
   return (
+    
     <div>
+      
+    <div　style={{ textAlign: "center"}}>
+      <h1>あほっこ動物</h1>
+    </div>
+
     <img
       src="/images/aho.png"
       alt="Aho image"
