@@ -64,7 +64,7 @@ export default function App() {
     <img
       src="/images/aho (2).png"
       alt="Aho image"
-      style={{ display: "block", margin: "0 auto", width: "1800px" }}
+      style={{ display: "block", margin: "0 auto", width: "1400px" }}
     />
 
     <Router>
