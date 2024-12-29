@@ -8,7 +8,6 @@ import Question from "./components/Question";
 import Goods from "./components/Goods";
 import Member from "./components/Animal";
 import Inf from "./components/Contact";
-import Contact from "./components/Contact";
 
 
 function Home() {
@@ -75,6 +74,7 @@ function Toiawase(){
 
 export default function App() {
   return (
+
     
     <div>
       
