@@ -49,6 +49,21 @@ export default function Header() {
 
           <Typography
             component={Link}
+            to="/animal"
+            sx={{
+              fontFamily: 'Hanazome',
+              textDecoration: "none",
+              color: "black",
+              fontSize: "24px",
+              fontWeight: "bold",
+              "&:hover": { color: "blue" },
+            }}
+          >
+            ずかん
+          </Typography>
+
+          <Typography
+            component={Link}
             to="/news"
             sx={{
               fontFamily: 'Hanazome',
@@ -90,6 +105,21 @@ export default function Header() {
             }}
           >
             グッズ
+          </Typography>
+
+          <Typography
+            component={Link}
+            to="/inf"
+            sx={{
+              fontFamily: 'Hanazome',
+              textDecoration: "none",
+              color: "black",
+              fontSize: "24px",
+              fontWeight: "bold",
+              "&:hover": { color: "blue" },
+            }}
+          >
+            お問い合わせ
           </Typography>
 
         </Box>

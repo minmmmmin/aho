@@ -6,6 +6,9 @@ import News from "./components/News";
 import About from "./components/About";
 import Question from "./components/Question";
 import Goods from "./components/Goods";
+import Member from "./components/Animal";
+import Inf from "./components/Contact";
+import Contact from "./components/Contact";
 
 
 function Home() {
@@ -34,6 +37,15 @@ function About_aho() {
   );
 }
 
+function Zukan() {
+  return (
+    <div>
+      <h1>動物ずかん</h1>
+      <Member />
+    </div>
+  );
+}
+
 function QandA(){
   return(
     <div>
@@ -48,6 +60,15 @@ function Aho_Goods(){
     <div>
       <h1>グッズ</h1>
       <Goods />
+    </div>
+  )
+}
+
+function Toiawase(){
+  return(
+    <div>
+      <h1>お問い合わせ</h1>
+      <Inf />
     </div>
   )
 }
@@ -76,6 +97,8 @@ export default function App() {
           <Route path="/about" element={<About_aho />} />
           <Route path ="/question" element={<QandA />} />
           <Route path ="/goods" element={<Aho_Goods />} />
+          <Route path ="/animal" element={<Zukan />} />
+          <Route path ="/inf" element={<Toiawase />} />
         </Routes>
       </div>
       <Footer />
