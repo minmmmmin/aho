@@ -17,6 +17,7 @@ body {
 .container {
   display: flex;
   align-items: center;
+  justify-content: center; 
   gap: 15px; /* 画像と吹き出しの間隔を設定 */
 }
 
