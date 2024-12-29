@@ -82,12 +82,6 @@ export default function App() {
       <h1>あほっこ動物</h1>
     </div>
 
-    <img
-      src="/images/aho (2).png"
-      alt="Aho image"
-      style={{ display: "block", margin: "0 auto", width: "1400px" }}
-    />
-
     <Router>
       <Header />
       <div style={{ textAlign: "center", marginTop: "20px" }}>

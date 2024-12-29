@@ -4,126 +4,65 @@ import { Link } from "react-router-dom";
 
 export default function Header() {
   return (
-    <AppBar position="static" sx={{ backgroundColor: "#fff", boxShadow: "none" }}>
-      <Toolbar>
-        <Box
-          sx={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            width: "100%",
-            gap: "24px",
-          }}
-        >
-                  
-          <Typography
-            component={Link}
-            to="/"
+    <Box>
+      <Box
+        component="img"
+        src="/images/aho.png"
+        alt="Header Image"
+        sx={{
+          width: "100%",
+          height: { xs: "150px", sm: "200px", md: "250px" },
+          objectFit: "cover",
+          objectPosition: "center",
+        }}
+      />
+
+      <AppBar
+        position="static"
+        sx={{
+          backgroundColor: "#fff",
+          boxShadow: "none",
+          borderBottom: "1px solid #ddd",
+        }}
+      >
+        <Toolbar>
+          <Box
             sx={{
-              fontFamily: 'Hanazome',
-              textDecoration: "none",
-              color: "black",
-              fontSize: "24px",
-              fontWeight: "bold",
-              "&:hover": { color: "blue" },
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              width: "100%",
+              gap: "32px",
             }}
           >
-            ホーム
-          </Typography>
-
-          
-          <Typography
-            component={Link}
-            to="/about"
-            sx={{
-              fontFamily: 'Hanazome',
-              textDecoration: "none",
-              color: "black",
-              fontSize: "24px",
-              fontWeight: "bold",
-              "&:hover": { color: "blue" },
-            }}
-          >
-            しょうかい
-          </Typography>
-
-          <Typography
-            component={Link}
-            to="/animal"
-            sx={{
-              fontFamily: 'Hanazome',
-              textDecoration: "none",
-              color: "black",
-              fontSize: "24px",
-              fontWeight: "bold",
-              "&:hover": { color: "blue" },
-            }}
-          >
-            ずかん
-          </Typography>
-
-          <Typography
-            component={Link}
-            to="/news"
-            sx={{
-              fontFamily: 'Hanazome',
-              textDecoration: "none",
-              color: "black",
-              fontSize: "24px",
-              fontWeight: "bold",
-              "&:hover": { color: "blue" },
-            }}
-          >
-            ミニゲーム
-          </Typography>
-
-          <Typography
-            component={Link}
-            to="/question"
-            sx={{
-              fontFamily: 'Hanazome',
-              textDecoration: "none",
-              color: "black",
-              fontSize: "24px",
-              fontWeight: "bold",
-              "&:hover": { color: "blue" },
-            }}
-          >
-            よくある質問
-          </Typography>
-
-          <Typography
-            component={Link}
-            to="/goods"
-            sx={{
-              fontFamily: 'Hanazome',
-              textDecoration: "none",
-              color: "black",
-              fontSize: "24px",
-              fontWeight: "bold",
-              "&:hover": { color: "blue" },
-            }}
-          >
-            グッズ
-          </Typography>
-
-          <Typography
-            component={Link}
-            to="/inf"
-            sx={{
-              fontFamily: 'Hanazome',
-              textDecoration: "none",
-              color: "black",
-              fontSize: "24px",
-              fontWeight: "bold",
-              "&:hover": { color: "blue" },
-            }}
-          >
-            お問い合わせ
-          </Typography>
-
-        </Box>
-      </Toolbar>
-    </AppBar>
+            {[
+              { to: "/", label: "ホーム" },
+              { to: "/about", label: "しょうかい" },
+              { to: "/animal", label: "ずかん" },
+              { to: "/news", label: "ミニゲーム" },
+              { to: "/question", label: "よくある質問" },
+              { to: "/goods", label: "グッズ" },
+              { to: "/inf", label: "お問い合わせ" },
+            ].map(({ to, label }) => (
+              <Typography
+                key={to}
+                component={Link}
+                to={to}
+                sx={{
+                  fontFamily: "Hanazome",
+                  textDecoration: "none",
+                  color: "black",
+                  fontSize: "24px",
+                  fontWeight: "bold",
+                  "&:hover": { color: "blue" },
+                }}
+              >
+                {label}
+              </Typography>
+            ))}
+          </Box>
+        </Toolbar>
+      </AppBar>
+    </Box>
   );
 }
