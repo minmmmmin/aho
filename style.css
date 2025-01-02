@@ -76,3 +76,14 @@ body {
   font-family: 'Hanazome', sans-serif;
   text-align: left;
 }
+
+.about-text {
+  font-size: 24px;
+  line-height: 2.0;
+  color: #333;
+  text-align: center;
+  margin: 0 auto; /* コンテナを中央寄せ */
+  max-width: 70%; /* コンテナの幅を短く設定 */
+  margin-top: 30px;
+  margin-bottom: 100px;
+}
