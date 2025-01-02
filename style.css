@@ -88,8 +88,24 @@ body {
   margin-bottom: 100px;
 }
 
+.animal-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.animal-item {
+  text-align: center;
+}
+
 .animal-image {
-  width: 250px;  /* 幅を指定する */
-  height: auto;  /* 高さを自動調整する */
-  margin: 10px;  /* 画像間の余白 */
+  width: 250px;
+  height: auto;
+  margin: 10px; 
+}
+
+.animal-caption {
+  margin-top: 5px;
+  font-size: 24px;
+  color: #555;
 }
