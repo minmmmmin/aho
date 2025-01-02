@@ -87,3 +87,9 @@ body {
   margin-top: 30px;
   margin-bottom: 100px;
 }
+
+.animal-image {
+  width: 250px;  /* 幅を指定する */
+  height: auto;  /* 高さを自動調整する */
+  margin: 10px;  /* 画像間の余白 */
+}
