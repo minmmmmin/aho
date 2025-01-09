@@ -92,8 +92,9 @@ body {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
+  justify-content: center; /* 中央揃えになるやつ */
+  /* align-items: center; */
 }
-
 .animal-item {
   text-align: center;
 }
