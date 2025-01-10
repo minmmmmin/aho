@@ -5,7 +5,7 @@ export default function Goods() {
         <p>
           ①
           <a
-            href="https://forms.gle/hx6P6pRoqDMoyufw8"
+            href="https://line.me/S/emoji/?id=672c7883f5546179ccca50e0&lang=ja&utm_source=gnsh_sticonDetail"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -16,7 +16,7 @@ export default function Goods() {
         <p>
           ②
           <a
-            href="https://docs.google.com/spreadsheets/d/1iNw2YU2WP6qFEI6z2iuBTNCW_92ih1Tb1Tw07aV7aSc/edit"
+            href="https://suzuri.jp/min_min__"
             target="_blank"
             rel="noopener noreferrer"
           >
