@@ -85,6 +85,9 @@ export default function Joke() {
 
   return (
     <div>
+      <p>
+        動物たちがジョークを言います。ボタンを押すとランダムにジョークと動物を変更できます。
+      </p>
       <div className="container">
         <img src={image} alt="ahoaho-Animal" />
         {error && (

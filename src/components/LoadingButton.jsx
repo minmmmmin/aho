@@ -6,8 +6,7 @@ export default function CustomLoadingButton({ loading, onClick, children }) {
       loading={loading}
       variant="contained"
       onClick={onClick}
-      
-      sx={{ bgcolor: "green"}}
+      sx={{ bgcolor: "green" }}
     >
       {children}
     </LoadingButton>

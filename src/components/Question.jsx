@@ -1,5 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { Container, Typography, Box, Divider, CircularProgress } from "@mui/material";
+import {
+  Container,
+  Typography,
+  Box,
+  Divider,
+  CircularProgress,
+} from "@mui/material";
 
 const Question = () => {
   const [news, setNews] = useState(null);
@@ -12,7 +18,7 @@ const Question = () => {
           "https://ahoaho.microcms.io/api/v1/question",
           {
             headers: {
-              "X-MICROCMS-API-KEY": import.meta.env.VITE_X_MICROCMS_API_KEY,//ちゃんと隠す！！
+              "X-MICROCMS-API-KEY": import.meta.env.VITE_X_MICROCMS_API_KEY, //ちゃんと隠す！！
             },
           }
         );
@@ -46,18 +52,39 @@ const Question = () => {
   return (
     <Container maxWidth="md">
       <Box my={4}>
+        <h3>みんなからの質問をまとています</h3>
         {news.contents.map((announcement) => (
           <Box key={announcement.id} mb={4}>
             <Box display="flex" alignItems="center" mb={1}>
-              <Typography variant="body2" color="textSecondary" mr={2} fontFamily='Hanazome' textAlign="left">
+              <Typography
+                variant="body2"
+                color="textSecondary"
+                mr={2}
+                fontFamily="Hanazome"
+                textAlign="left"
+              >
                 {new Date(announcement.publishedAt).toLocaleDateString()}
               </Typography>
             </Box>
-            <Typography variant="h5" component="h2" gutterBottom fontFamily='Hanazome' textAlign="left">
+            <Typography
+              variant="h5"
+              component="h2"
+              gutterBottom
+              fontFamily="Hanazome"
+              textAlign="left"
+            >
               {announcement.title}
             </Typography>
-            <Typography variant="body1" component="div" gutterBottom fontFamily='Hanazome' textAlign="left">
-              <span dangerouslySetInnerHTML={{ __html: announcement.content }} />
+            <Typography
+              variant="body1"
+              component="div"
+              gutterBottom
+              fontFamily="Hanazome"
+              textAlign="left"
+            >
+              <span
+                dangerouslySetInnerHTML={{ __html: announcement.content }}
+              />
             </Typography>
             <Divider />
           </Box>
