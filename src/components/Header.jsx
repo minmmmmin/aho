@@ -32,7 +32,7 @@ export default function Header() {
               justifyContent: "center",
               alignItems: "center",
               width: "100%",
-              gap: "32px",
+              gap: "5%",
             }}
           >
             {[

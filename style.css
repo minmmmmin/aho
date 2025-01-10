@@ -110,3 +110,11 @@ body {
   font-size: 24px;
   color: #555;
 }
+
+.line-image,
+.suzuri-image {
+  width: 300px;
+  height: auto;
+  margin: 10px 0;
+  object-fit: cover;
+}

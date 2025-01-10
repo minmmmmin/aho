@@ -1,70 +1,33 @@
-import React, { useState, useEffect } from "react";
-import { Container, Typography, Box, Divider, CircularProgress } from "@mui/material";
-
-const Goods = () => {
-  const [news, setNews] = useState(null);
-  const [error, setError] = useState(null);
-
-  useEffect(() => {
-    const fetchNews = async () => {
-      try {
-        const response = await fetch(
-          "https://ahoaho.microcms.io/api/v1/goods",
-          {
-            headers: {
-              "X-MICROCMS-API-KEY": import.meta.env.VITE_X_MICROCMS_API_KEY,//ちゃんと隠す！！
-            },
-          }
-        );
-
-        if (!response.ok) {
-          throw new Error("お知らせの取得に失敗しました。");
-        }
-
-        const data = await response.json();
-        setNews(data);
-      } catch (error) {
-        console.error("Error fetching content:", error);
-        setError("お知らせの取得中にエラーが発生しました。");
-      }
-    };
-    fetchNews();
-  }, []);
-
-  if (error) {
-    return <Typography color="error">{error}</Typography>;
-  }
-
-  if (!news?.contents) {
-    return (
-      <Box display="flex" justifyContent="center" my={4}>
-        <CircularProgress />
-      </Box>
-    );
-  }
-
+export default function Goods() {
   return (
-    <Container maxWidth="md">
-      <Box my={4}>
-        {news.contents.map((announcement) => (
-          <Box key={announcement.id} mb={4}>
-            <Box display="flex" alignItems="center" mb={1}>
-              <Typography variant="body2" color="textSecondary" mr={2} fontFamily='Hanazome' textAlign="left">
-                {new Date(announcement.publishedAt).toLocaleDateString()}
-              </Typography>
-            </Box>
-            <Typography variant="h5" component="h2" gutterBottom fontFamily='Hanazome' textAlign="left">
-              {announcement.title}
-            </Typography>
-            <Typography variant="body1" component="div" gutterBottom fontFamily='Hanazome' textAlign="left">
-              <span dangerouslySetInnerHTML={{ __html: announcement.content }} />
-            </Typography>
-            <Divider />
-          </Box>
-        ))}
-      </Box>
-    </Container>
+    <>
+      <div className="about-text">
+        <p>
+          ①
+          <a
+            href="https://forms.gle/hx6P6pRoqDMoyufw8"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            LINE絵文字
+          </a>
+        </p>
+        <img src="/images/LINE.png" className="line-image" alt="LINE絵文字" />
+        <p>
+          ②
+          <a
+            href="https://docs.google.com/spreadsheets/d/1iNw2YU2WP6qFEI6z2iuBTNCW_92ih1Tb1Tw07aV7aSc/edit"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            suzuri
+          </a>
+        </p>
+        <img src="/images/suzuri.png" className="suzuri-image" alt="suzuri" />
+        <p>
+          グッズのリクエストがありましたらお問い合わせフォームにてお願いします。
+        </p>
+      </div>
+    </>
   );
-};
-
-export default Goods;
+}

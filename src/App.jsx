@@ -57,7 +57,7 @@ function QandA(){
 function Aho_Goods(){
   return(
     <div>
-      <h1>グッズ</h1>
+      <h1>グッズの紹介</h1>
       <Goods />
     </div>
   )
