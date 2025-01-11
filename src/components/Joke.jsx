@@ -26,6 +26,7 @@ export default function Joke() {
     "images/uma.PNG",
     "images/usagi.PNG",
     "images/usi.PNG",
+    "images/musi.png",
   ];
 
   const [image, setImage] = useState(

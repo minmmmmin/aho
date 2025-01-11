@@ -19,6 +19,7 @@ export default function Animal() {
     { src: "images/kumasan.png", caption: "くまさん" },
     { src: "images/pig.png", caption: "ぶた" },
     { src: "images/tanuki.png", caption: "たぬき" },
+    { src: "images/mushi.png", caption: "むし" },
   ];
 
   return (
@@ -40,7 +41,7 @@ export default function Animal() {
           key={index}
           style={{
             textAlign: "center",
-            marginBottom: "20px", // 下部の余白を追加
+            marginBottom: "50px", // 下部の余白を追加
           }}
         >
           <img

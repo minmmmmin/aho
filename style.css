@@ -90,7 +90,7 @@ footer {
   justify-content: center;
   align-items: baseline;/* これにするをボタンの上下配置がよくなったよ！！やったね！！ */
   gap: 20px;
-  margin: 20px 0;
+  margin: 20px 100px;
 }
 
 .news {
