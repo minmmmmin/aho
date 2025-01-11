@@ -137,3 +137,21 @@ footer {
   margin: 10px 0;
   object-fit: cover;
 }
+
+/* main.jsxで作ってるdiv#contentにスタイル当てる */
+/* #はidっていう意味 */
+#content {
+  height: 100%;
+}
+
+/* #contentの中の、子要素のdivにスタイル当てる */
+#content > div {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* #contentの中の、子要素のdivの、3番目の子要素のdivにスタイル当てる */
+#content > div > div:nth-child(3) {
+  flex: 1;
+}
