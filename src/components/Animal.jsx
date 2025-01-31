@@ -1,26 +1,23 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Grid, Typography } from "@mui/material";
 
 export default function Animal() {
-  const imagePaths = [
-    { src: "images/mouse.PNG", caption: "ねずみ" },
-    { src: "images/usi.PNG", caption: "うし" },
-    { src: "images/tora.PNG", caption: "とらくん" },
-    { src: "images/usagi.PNG", caption: "うきうきらびっと" },
-    { src: "images/tatu.PNG", caption: "たつ" },
-    { src: "images/hebi.PNG", caption: "へび" },
-    { src: "images/uma.PNG", caption: "うま" },
-    { src: "images/hituji.PNG", caption: "ひつじ" },
-    { src: "images/monkey.PNG", caption: "うきうきもんきー" },
-    { src: "images/piyo.PNG", caption: "piyo" },
-    { src: "images/inu.PNG", caption: "いぬ" },
-    { src: "images/inoshishi.PNG", caption: "いのしし" },
-    { src: "images/mogumogurisu.png", caption: "もぐもぐりす" },
-    { src: "images/kumasan.png", caption: "くまさん" },
-    { src: "images/pig.png", caption: "ぶた" },
-    { src: "images/tanuki.png", caption: "たぬき" },
-    { src: "images/mushi.png", caption: "むし" },
-  ];
+  const [imagePaths, setImagePaths] = useState([]); // JSONデータを保存するためのstate
+
+  // animals.jsonを読み込む
+  useEffect(() => {
+    const loadImagePaths = async () => {
+      try {
+        const response = await fetch("aho.json");
+        const data = await response.json();
+        setImagePaths(data.imagePaths); // 画像パスとキャプションをステートにセット
+      } catch (err) {
+        console.error("画像データの読み込みに失敗しました:", err);
+      }
+    };
+
+    loadImagePaths();
+  }, []);
 
   return (
     <Grid
