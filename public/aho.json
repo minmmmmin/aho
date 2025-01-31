@@ -16,7 +16,9 @@
       { "src": "images/kumasan.png", "caption": "くまさん" },
       { "src": "images/pig.png", "caption": "ぶた" },
       { "src": "images/tanuki.png", "caption": "たぬき" },
-      { "src": "images/mushi.png", "caption": "むし" }
+      { "src": "images/mushi.png", "caption": "むし" },
+      { "src": "images/kirin.png", "caption": "きりんさん" },
+      { "src": "images/tashikani.png", "caption": "たしカニ" }
     ]
   }
   
