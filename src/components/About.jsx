@@ -17,7 +17,7 @@ export default function About() {
     };
 
     loadImagePaths();
-  }, []); // 初回マウント時に1回だけ実行
+  }, []);
 
   // ランダムに画像を選ぶ処理
   useEffect(() => {
