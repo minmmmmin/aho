@@ -11,12 +11,15 @@ export default function Footer() {
     >
       <Container maxWidth="lg">
         <Typography variant="h6" align="center" color="white" gutterBottom>
-          日本大学文理学部情報科学科 Webプログラミング最終課題
+          Webプログラミング最終課題
         </Typography>
 
-        <Typography variant="h6" align="center" color="white" gutterBottom>
-          5423054 坂口琴美
-        </Typography>
+        <Typography
+          variant="h6"
+          align="center"
+          color="white"
+          gutterBottom
+        ></Typography>
 
         <Typography
           variant="subtitle1"
