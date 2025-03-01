@@ -1,4 +1,4 @@
-import { Box, Typography, Container } from "@mui/material";
+import { Box, Typography, Container, Link } from "@mui/material";
 
 export default function Footer() {
   return (
@@ -10,22 +10,29 @@ export default function Footer() {
       }}
     >
       <Container maxWidth="lg">
-        <Typography variant="h6" align="center" color="white" gutterBottom>
-          Webプログラミング最終課題
-        </Typography>
+        <Box sx={{ textAlign: "center", mt: 2, display: "flex", justifyContent: "center", alignItems: "center" }}>
+          {/* 左側の画像 */}
+          <Box component="img" src="/images/usagi.PNG" alt="usagi" sx={{ width: 24, height: 24, mx: 1 }} />
+          
+          <Link
+            href="https://x.com/carrot__pyon_"
+            color="inherit"
+            target="_blank"
+            sx={{ textDecoration: "none", fontSize: "16px" }}
+          >
+            作者のX
+          </Link>
 
-        <Typography
-          variant="h6"
-          align="center"
-          color="white"
-          gutterBottom
-        ></Typography>
+          {/* 右側の画像 */}
+          <Box component="img" src="/images/usagi.PNG" alt="usagi" sx={{ width: 24, height: 24, mx: 1 }} />
+        </Box>
 
         <Typography
           variant="subtitle1"
           align="center"
           color="white"
           component="p"
+          sx={{ mt: 3 }}
         >
           Copyright © 2024 min
         </Typography>
