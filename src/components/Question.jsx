@@ -15,10 +15,10 @@ const Question = () => {
     const fetchNews = async () => {
       try {
         const response = await fetch(
-          "https://ahoaho.microcms.io/api/v1/question",
+          `https://ahoaho.microcms.io/api/v1/question?limit=100`, // limitを追加
           {
             headers: {
-              "X-MICROCMS-API-KEY": import.meta.env.VITE_X_MICROCMS_API_KEY, //ちゃんと隠す！！
+              "X-MICROCMS-API-KEY": import.meta.env.VITE_X_MICROCMS_API_KEY, // APIキーをしっかり管理！
             },
           }
         );
@@ -52,7 +52,7 @@ const Question = () => {
   return (
     <Container maxWidth="md">
       <Box my={4}>
-        <h3>みんなからの質問をまとています</h3>
+        <h3>みんなからの質問をまとめています</h3>
         {news.contents.map((announcement) => (
           <Box key={announcement.id} mb={4}>
             <Box display="flex" alignItems="center" mb={1}>
