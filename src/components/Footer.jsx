@@ -20,7 +20,7 @@ export default function Footer() {
             target="_blank"
             sx={{ textDecoration: "none", fontSize: "16px" }}
           >
-            作者のX
+            作者のX（旧Twitter）
           </Link>
 
           {/* 右側の画像 */}
