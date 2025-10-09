@@ -33,7 +33,7 @@ export default function Header() {
               alignItems: "center",
               width: "100%",
               gap: {
-                xs: "2%",
+                xs: "5px",
                 md: "5%",
               },
             }}
