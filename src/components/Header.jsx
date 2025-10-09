@@ -32,7 +32,10 @@ export default function Header() {
               justifyContent: "center",
               alignItems: "center",
               width: "100%",
-              gap: "5%",
+              gap: {
+                xs: "2%",
+                md: "5%",
+              },
             }}
           >
             {[
@@ -52,7 +55,12 @@ export default function Header() {
                   fontFamily: "Hanazome",
                   textDecoration: "none",
                   color: "black",
-                  fontSize: "24px",
+                  fontSize: {
+                    xs: "10px",
+                    sm: "15px",
+                    md: "20px",
+                    lg: "24px",
+                  },
                   fontWeight: "bold",
                   "&:hover": { color: "blue" },
                 }}
