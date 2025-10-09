@@ -34,7 +34,8 @@ export default function Header() {
               width: "100%",
               gap: {
                 xs: "5px",
-                md: "5%",
+                sm: "2%",
+                md: "4%",
               },
             }}
           >
