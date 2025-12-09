@@ -9,7 +9,6 @@ import Goods from "./components/Goods";
 import Member from "./components/Animal";
 import Inf from "./components/Contact";
 
-
 function Home() {
   return (
     <div>
@@ -45,58 +44,55 @@ function Zukan() {
   );
 }
 
-function QandA(){
-  return(
+function QandA() {
+  return (
     <div>
       <h1>よくある質問</h1>
       <Question />
     </div>
-  )
+  );
 }
 
-function Aho_Goods(){
-  return(
+function Aho_Goods() {
+  return (
     <div>
       <h1>グッズの紹介</h1>
       <Goods />
     </div>
-  )
+  );
 }
 
-function Toiawase(){
-  return(
+function Toiawase() {
+  return (
     <div>
       <h1>お問い合わせ</h1>
       <Inf />
     </div>
-  )
+  );
 }
 
 export default function App() {
   return (
-
-    
     <div>
-      
-    <div　style={{ textAlign: "center"}}>
-      <h1>あほっこ動物</h1>
-    </div>
-
-    <Router>
-      <Header />
-      <div style={{ textAlign: "center", marginTop: "20px" }}>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/news" element={<NewsPage />} />
-          <Route path="/about" element={<About_aho />} />
-          <Route path ="/question" element={<QandA />} />
-          <Route path ="/goods" element={<Aho_Goods />} />
-          <Route path ="/animal" element={<Zukan />} />
-          <Route path ="/inf" element={<Toiawase />} />
-        </Routes>
+      <div style={{ textAlign: "center" }}>
+        <h1>あほっこ動物</h1>
       </div>
-      <Footer />
-    </Router>
+
+      <Router>
+        <Header />
+        <div style={{ textAlign: "center", marginTop: "20px" }}>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/news" element={<NewsPage />} />
+            <Route path="/about" element={<About_aho />} />
+            <Route path="/question" element={<QandA />} />
+            <Route path="/goods" element={<Aho_Goods />} />
+            <Route path="/animal" element={<Zukan />} />
+            <Route path="/inf" element={<Toiawase />} />
+          </Routes>
+        </div>
+        <Footer />
+      </Router>
     </div>
   );
 }

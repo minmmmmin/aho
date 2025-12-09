@@ -24,13 +24,14 @@ export default function About() {
     if (imagePaths.length > 0) {
       const getRandomImages = () => {
         const randomIndexes = [];
-        while (randomIndexes.length < 5) { // 5枚のランダム画像を選ぶ
+        while (randomIndexes.length < 5) {
+          // 5枚のランダム画像を選ぶ
           const index = Math.floor(Math.random() * imagePaths.length);
           if (!randomIndexes.includes(index)) {
             randomIndexes.push(index);
           }
         }
-        setRandomImages(randomIndexes.map(index => imagePaths[index]));
+        setRandomImages(randomIndexes.map((index) => imagePaths[index]));
       };
       getRandomImages();
     }

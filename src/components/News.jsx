@@ -14,11 +14,14 @@ const News = () => {
   useEffect(() => {
     const fetchNews = async () => {
       try {
-        const response = await fetch("https://ahoaho.microcms.io/api/v1/news?limit=100", {
-          headers: {
-            "X-MICROCMS-API-KEY": import.meta.env.VITE_X_MICROCMS_API_KEY, //ちゃんと隠す！！
-          },
-        });
+        const response = await fetch(
+          "https://ahoaho.microcms.io/api/v1/news?limit=100",
+          {
+            headers: {
+              "X-MICROCMS-API-KEY": import.meta.env.VITE_X_MICROCMS_API_KEY, //ちゃんと隠す！！
+            },
+          }
+        );
 
         if (!response.ok) {
           throw new Error("お知らせの取得に失敗しました。");

@@ -10,10 +10,23 @@ export default function Footer() {
       }}
     >
       <Container maxWidth="lg">
-        <Box sx={{ textAlign: "center", mt: 2, display: "flex", justifyContent: "center", alignItems: "center" }}>
+        <Box
+          sx={{
+            textAlign: "center",
+            mt: 2,
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
           {/* 左側の画像 */}
-          <Box component="img" src="/images/usagi.PNG" alt="usagi" sx={{ width: 24, height: 24, mx: 1 }} />
-          
+          <Box
+            component="img"
+            src="/images/usagi.png"
+            alt="usagi"
+            sx={{ width: 24, height: 24, mx: 1 }}
+          />
+
           <Link
             href="https://x.com/carrot__pyon_"
             color="inherit"
@@ -24,7 +37,12 @@ export default function Footer() {
           </Link>
 
           {/* 右側の画像 */}
-          <Box component="img" src="/images/usagi.PNG" alt="usagi" sx={{ width: 24, height: 24, mx: 1 }} />
+          <Box
+            component="img"
+            src="/images/usagi.png"
+            alt="usagi"
+            sx={{ width: 24, height: 24, mx: 1 }}
+          />
         </Box>
 
         <Typography
