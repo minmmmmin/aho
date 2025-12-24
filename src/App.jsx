@@ -74,10 +74,6 @@ function Toiawase() {
 export default function App() {
   return (
     <div>
-      <div style={{ textAlign: "center" }}>
-        <h1>あほっこ動物</h1>
-      </div>
-
       <Router>
         <Header />
         <div style={{ textAlign: "center", marginTop: "20px" }}>
