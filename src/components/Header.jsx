@@ -19,7 +19,7 @@ const menuItems = [
   { to: "/", label: "ホーム" },
   { to: "/about", label: "しょうかい" },
   { to: "/animal", label: "ずかん" },
-  { to: "/news", label: "ミニゲーム" },
+  // { to: "/news", label: "ミニゲーム" },
   { to: "/question", label: "よくある質問" },
   { to: "/goods", label: "グッズ" },
   { to: "/inf", label: "お問い合わせ" },
