@@ -33,7 +33,7 @@ export default function Animal() {
       {imagePaths.map((image, index) => (
         <Grid
           item
-          xs={12}
+          xs={4}
           sm={3}
           key={index}
           style={{
