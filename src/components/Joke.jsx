@@ -1,5 +1,5 @@
-import { useState, useEffect } from "react";
-import CustomLoadingButton from "./LoadingButton";
+import { useState, useEffect } from 'react';
+import CustomLoadingButton from './LoadingButton';
 
 export default function Joke() {
   const [joke, setJoke] = useState(null); // ジョークを保存
@@ -15,15 +15,15 @@ export default function Joke() {
     setError(null);
     try {
       const response = await fetch(
-        "https://v2.jokeapi.dev/joke/Any?blacklistFlags=nsfw,religious,political,racist,sexist&type=single"
+        'https://v2.jokeapi.dev/joke/Any?blacklistFlags=nsfw,religious,political,racist,sexist&type=single',
       );
       if (!response.ok) {
-        throw new Error("ジョークを取得できませんでした");
+        throw new Error('ジョークを取得できませんでした');
       }
       const data = await response.json();
 
       let jokeText;
-      if (data.type === "single") {
+      if (data.type === 'single') {
         jokeText = data.joke;
       } else {
         jokeText = `${data.setup} ... ${data.delivery}`;
@@ -48,7 +48,7 @@ export default function Joke() {
       }
       setImage(randomImage.src); // 画像のみ変更
     } catch (err) {
-      console.error("画像変更に失敗しました:", err);
+      console.error('画像変更に失敗しました:', err);
     } finally {
       setAnimalLoading(false);
     }
@@ -59,15 +59,15 @@ export default function Joke() {
     fetchJoke();
     const loadImagePaths = async () => {
       try {
-        const response = await fetch("aho.json");
+        const response = await fetch('aho.json');
         const data = await response.json();
         setImagePaths(data.imagePaths); // 画像パスをステートにセット
         setImage(
           data.imagePaths[Math.floor(Math.random() * data.imagePaths.length)]
-            .src
+            .src,
         ); // ランダムな画像を初期設定
       } catch (err) {
-        console.error("画像パスの読み込みに失敗しました:", err);
+        console.error('画像パスの読み込みに失敗しました:', err);
       }
     };
 
@@ -80,10 +80,10 @@ export default function Joke() {
         動物たちがジョークを言います。ボタンを押すとランダムにジョークと動物を変更できます。
       </p>
       <div className="container">
-        {image && <img src={image} alt="Animal" />}{" "}
+        {image && <img src={image} alt="Animal" />}{' '}
         {/* 画像がnullでない場合のみ表示 */}
         {error && (
-          <p className="joke" style={{ color: "red" }}>
+          <p className="joke" style={{ color: 'red' }}>
             {error}
           </p>
         )}

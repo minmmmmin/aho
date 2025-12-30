@@ -1,4 +1,5 @@
-html, body {
+html,
+body {
   height: 100%;
   margin: 0;
 }
@@ -57,25 +58,25 @@ footer {
   max-width: 300px;
   color: #555;
   font-size: 16px;
-  background: #FFF;
+  background: #fff;
   border: solid 3px #555;
   box-sizing: border-box;
   word-wrap: break-word;
 }
 
 .joke:before {
-  content: "";
+  content: '';
   position: absolute;
   top: 50%;
   left: -24px;
   transform: translateY(-50%);
   border: 12px solid transparent;
-  border-right: 12px solid #FFF;
+  border-right: 12px solid #fff;
   z-index: 2;
 }
 
 .joke:after {
-  content: "";
+  content: '';
   position: absolute;
   top: 50%;
   left: -30px;
@@ -88,7 +89,7 @@ footer {
 .button {
   display: flex;
   justify-content: center;
-  align-items: baseline;/* これにするをボタンの上下配置がよくなったよ！！やったね！！ */
+  align-items: baseline; /* これにするをボタンの上下配置がよくなったよ！！やったね！！ */
   gap: 20px;
   margin: 20px 100px;
 }
@@ -100,7 +101,7 @@ footer {
 
 .about-text {
   font-size: 18px;
-  line-height: 2.0;
+  line-height: 2;
   color: #333;
   text-align: center;
   margin: 30px auto;

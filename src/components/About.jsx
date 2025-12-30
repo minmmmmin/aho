@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect } from 'react';
 
 export default function About() {
   const [imagePaths, setImagePaths] = useState([]); // 画像パスを保存する
@@ -8,11 +8,11 @@ export default function About() {
   useEffect(() => {
     const loadImagePaths = async () => {
       try {
-        const response = await fetch("aho.json");
+        const response = await fetch('aho.json');
         const data = await response.json();
         setImagePaths(data.imagePaths); // 画像パスをステートにセット
       } catch (err) {
-        console.error("画像パスの読み込みに失敗しました:", err);
+        console.error('画像パスの読み込みに失敗しました:', err);
       }
     };
 
@@ -58,7 +58,7 @@ export default function About() {
             key={index}
             src={image.src}
             alt={image.caption}
-            style={{ width: "100px", height: "auto", margin: "10px" }} // スタイル調整
+            style={{ width: '100px', height: 'auto', margin: '10px' }} // スタイル調整
           />
         ))}
       </div>

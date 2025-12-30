@@ -1,13 +1,13 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Footer from "./components/Footer";
-import Header from "./components/Header";
-import Joke from "./components/Joke";
-import News from "./components/News";
-import About from "./components/About";
-import Question from "./components/Question";
-import Goods from "./components/Goods";
-import Member from "./components/Animal";
-import Inf from "./components/Contact";
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Footer from './components/Footer';
+import Header from './components/Header';
+import Joke from './components/Joke';
+import News from './components/News';
+import About from './components/About';
+import Question from './components/Question';
+import Goods from './components/Goods';
+import Member from './components/Animal';
+import Inf from './components/Contact';
 
 function Home() {
   return (
@@ -76,7 +76,7 @@ export default function App() {
     <div>
       <Router>
         <Header />
-        <div style={{ textAlign: "center", marginTop: "20px" }}>
+        <div style={{ textAlign: 'center', marginTop: '20px' }}>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/news" element={<NewsPage />} />

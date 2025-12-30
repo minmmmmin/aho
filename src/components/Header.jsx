@@ -1,4 +1,4 @@
-import * as React from "react";
+import * as React from 'react';
 import {
   AppBar,
   Toolbar,
@@ -10,24 +10,24 @@ import {
   ListItem,
   ListItemButton,
   ListItemText,
-} from "@mui/material";
-import MenuIcon from "@mui/icons-material/Menu";
-import { Link } from "react-router-dom";
-import { useTheme, useMediaQuery } from "@mui/material";
+} from '@mui/material';
+import MenuIcon from '@mui/icons-material/Menu';
+import { Link } from 'react-router-dom';
+import { useTheme, useMediaQuery } from '@mui/material';
 
 const menuItems = [
-  { to: "/", label: "ホーム" },
-  { to: "/about", label: "しょうかい" },
-  { to: "/animal", label: "ずかん" },
+  { to: '/', label: 'ホーム' },
+  { to: '/about', label: 'しょうかい' },
+  { to: '/animal', label: 'ずかん' },
   // { to: "/news", label: "ミニゲーム" },
-  { to: "/question", label: "よくある質問" },
-  { to: "/goods", label: "グッズ" },
-  { to: "/inf", label: "お問い合わせ" },
+  { to: '/question', label: 'よくある質問' },
+  { to: '/goods', label: 'グッズ' },
+  { to: '/inf', label: 'お問い合わせ' },
 ];
 
 export default function Header() {
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
   const [open, setOpen] = React.useState(false);
 
   return (
@@ -35,11 +35,11 @@ export default function Header() {
       {/* 一番上：タイトル（スマホは左にハンバーガー） */}
       <Box
         sx={{
-          display: "flex",
-          alignItems: "center",
+          display: 'flex',
+          alignItems: 'center',
           px: 2,
           py: 2,
-          borderBottom: "1px solid #eee",
+          borderBottom: '1px solid #eee',
         }}
       >
         {/* 左：ハンバーガー or 空 */}
@@ -56,12 +56,12 @@ export default function Header() {
           component={Link}
           to="/"
           sx={{
-            fontFamily: "Hanazome",
-            textDecoration: "none",
-            color: "black",
-            fontSize: { xs: "24px", sm: "32px" },
-            fontWeight: "bold",
-            mx: "auto",
+            fontFamily: 'Hanazome',
+            textDecoration: 'none',
+            color: 'black',
+            fontSize: { xs: '24px', sm: '32px' },
+            fontWeight: 'bold',
+            mx: 'auto',
           }}
         >
           あほっこ動物
@@ -77,9 +77,9 @@ export default function Header() {
         src="/images/aho.png"
         alt="Header Image"
         sx={{
-          width: "100%",
-          height: { xs: "150px", sm: "200px", md: "250px" },
-          objectFit: "cover",
+          width: '100%',
+          height: { xs: '150px', sm: '200px', md: '250px' },
+          objectFit: 'cover',
         }}
       />
 
@@ -88,25 +88,25 @@ export default function Header() {
         <AppBar
           position="static"
           sx={{
-            backgroundColor: "#fff",
-            boxShadow: "none",
-            borderBottom: "1px solid #ddd",
+            backgroundColor: '#fff',
+            boxShadow: 'none',
+            borderBottom: '1px solid #ddd',
           }}
         >
-          <Toolbar sx={{ justifyContent: "center" }}>
-            <Box sx={{ display: "flex", gap: "32px" }}>
+          <Toolbar sx={{ justifyContent: 'center' }}>
+            <Box sx={{ display: 'flex', gap: '32px' }}>
               {menuItems.map(({ to, label }) => (
                 <Typography
                   key={to}
                   component={Link}
                   to={to}
                   sx={{
-                    fontFamily: "Hanazome",
-                    textDecoration: "none",
-                    color: "black",
-                    fontSize: "18px",
-                    fontWeight: "bold",
-                    "&:hover": { color: "blue" },
+                    fontFamily: 'Hanazome',
+                    textDecoration: 'none',
+                    color: 'black',
+                    fontSize: '18px',
+                    fontWeight: 'bold',
+                    '&:hover': { color: 'blue' },
                   }}
                 >
                   {label}
@@ -131,8 +131,8 @@ export default function Header() {
                   <ListItemText
                     primary={item.label}
                     primaryTypographyProps={{
-                      fontFamily: "Hanazome",
-                      fontSize: "18px",
+                      fontFamily: 'Hanazome',
+                      fontSize: '18px',
                     }}
                   />
                 </ListItemButton>

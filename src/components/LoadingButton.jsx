@@ -1,4 +1,4 @@
-import LoadingButton from "@mui/lab/LoadingButton";
+import LoadingButton from '@mui/lab/LoadingButton';
 
 export default function CustomLoadingButton({ loading, onClick, children }) {
   return (
@@ -6,7 +6,7 @@ export default function CustomLoadingButton({ loading, onClick, children }) {
       loading={loading}
       variant="contained"
       onClick={onClick}
-      sx={{ bgcolor: "gray" }}
+      sx={{ bgcolor: 'gray' }}
     >
       {children}
     </LoadingButton>

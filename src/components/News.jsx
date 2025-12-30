@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react';
 import {
   Container,
   Typography,
   Box,
   Divider,
   CircularProgress,
-} from "@mui/material";
+} from '@mui/material';
 
 const News = () => {
   const [news, setNews] = useState(null);
@@ -15,23 +15,23 @@ const News = () => {
     const fetchNews = async () => {
       try {
         const response = await fetch(
-          "https://ahoaho.microcms.io/api/v1/news?limit=100",
+          'https://ahoaho.microcms.io/api/v1/news?limit=100',
           {
             headers: {
-              "X-MICROCMS-API-KEY": import.meta.env.VITE_X_MICROCMS_API_KEY, //ちゃんと隠す！！
+              'X-MICROCMS-API-KEY': import.meta.env.VITE_X_MICROCMS_API_KEY, //ちゃんと隠す！！
             },
-          }
+          },
         );
 
         if (!response.ok) {
-          throw new Error("お知らせの取得に失敗しました。");
+          throw new Error('お知らせの取得に失敗しました。');
         }
 
         const data = await response.json();
         setNews(data);
       } catch (error) {
-        console.error("Error fetching content:", error);
-        setError("お知らせの取得中にエラーが発生しました。");
+        console.error('Error fetching content:', error);
+        setError('お知らせの取得中にエラーが発生しました。');
       }
     };
     fetchNews();

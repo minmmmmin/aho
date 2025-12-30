@@ -1,22 +1,22 @@
-import { Box, Typography, Container, Link } from "@mui/material";
+import { Box, Typography, Container, Link } from '@mui/material';
 
 export default function Footer() {
   return (
     <Box
       component="footer"
       sx={{
-        bgcolor: "gray",
+        bgcolor: 'gray',
         py: 3,
       }}
     >
       <Container maxWidth="lg">
         <Box
           sx={{
-            textAlign: "center",
+            textAlign: 'center',
             mt: 2,
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
           }}
         >
           {/* 左側の画像 */}
@@ -31,7 +31,7 @@ export default function Footer() {
             href="https://x.com/carrot__pyon_"
             color="inherit"
             target="_blank"
-            sx={{ textDecoration: "none", fontSize: "16px" }}
+            sx={{ textDecoration: 'none', fontSize: '16px' }}
           >
             作者のX（旧Twitter）
           </Link>
