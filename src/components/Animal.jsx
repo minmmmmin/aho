@@ -45,16 +45,20 @@ export default function Animal() {
             src={image.src}
             alt={image.caption}
             style={{
-              width: '70%', // 画像の幅を指定
+              width: '80%', // 画像の幅を指定
               height: 'auto', // アスペクト比を維持
             }}
           />
           <Typography
             variant="body1"
             fontFamily="Hanazome"
-            style={{
+            sx={{
               marginTop: '5px',
-              fontSize: '1.5rem',
+              fontSize: {
+                xs: '1rem',
+                sm: '1.2rem',
+                md: '1.5rem',
+              },
             }}
           >
             {image.caption}
