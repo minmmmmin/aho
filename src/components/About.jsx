@@ -1,67 +1,72 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
+
+const PICK_COUNT = 5;
 
 export default function About() {
-  const [imagePaths, setImagePaths] = useState([]); // 画像パスを保存する
-  const [randomImages, setRandomImages] = useState([]); // ランダムに選ばれた画像を保存する
+  const [imagePaths, setImagePaths] = useState([]);
+  const [randomImages, setRandomImages] = useState([]);
 
-  // aho.jsonから画像パスを読み込む
   useEffect(() => {
+    let cancelled = false;
     const loadImagePaths = async () => {
       try {
-        const response = await fetch('aho.json');
-        const data = await response.json();
-        setImagePaths(data.imagePaths); // 画像パスをステートにセット
+        const res = await fetch('aho.json');
+        const data = await res.json();
+        if (!cancelled) {
+          setImagePaths(data.imagePaths ?? []);
+        }
       } catch (err) {
-        console.error('画像パスの読み込みに失敗しました:', err);
+        if (!cancelled) {
+          console.error('画像パスの読み込みに失敗しました:', err);
+        }
       }
     };
 
     loadImagePaths();
+
+    return () => {
+      cancelled = true;
+    };
   }, []);
 
-  // ランダムに画像を選ぶ処理
   useEffect(() => {
-    if (imagePaths.length > 0) {
-      const getRandomImages = () => {
-        const randomIndexes = [];
-        while (randomIndexes.length < 5) {
-          // 5枚のランダム画像を選ぶ
-          const index = Math.floor(Math.random() * imagePaths.length);
-          if (!randomIndexes.includes(index)) {
-            randomIndexes.push(index);
-          }
-        }
-        setRandomImages(randomIndexes.map((index) => imagePaths[index]));
-      };
-      getRandomImages();
-    }
-  }, [imagePaths]); // 画像パスが更新されたらランダム画像を再設定
+    if (imagePaths.length === 0) return;
+
+    const shuffled = [...imagePaths].sort(() => 0.5 - Math.random());
+    setRandomImages(shuffled.slice(0, PICK_COUNT));
+  }, [imagePaths]);
 
   return (
-    <>
-      <p className="about-text">
-        あほっこ動物は、<strong>あほな動物たち</strong>のことを指します。
-        <br />
-        不定期でさまざまな個性豊かな動物たちが誕生します。
-        <br />
-        この何とも言えない表情が魅力的。
-        <br />
-        名前がある動物もいれば、ない動物もいます。
-        <br />
-        どの動物も、見ているだけで癒やされること間違いなし！
-      </p>
+    <div className="space-y-8">
+      {/* 説明文 */}
+      <div className="mx-auto max-w-3xl text-center leading-loose text-base-content">
+        <p>
+          あほっこ動物は、あほな動物たちのことを指します。
+          <br />
+          不定期でさまざまな個性豊かな動物たちが誕生します。
+          <br />
+          この何とも言えない表情が魅力的。
+          <br />
+          名前がある動物もいれば、ない動物もいます。
+          <br />
+          どの動物も、見ているだけで癒やされること間違いなし。
+        </p>
+      </div>
 
-      {/* ランダムに選ばれた画像の表示 */}
-      <div className="animal-images">
+      <div className="flex flex-wrap justify-center">
         {randomImages.map((image, index) => (
-          <img
-            key={index}
-            src={image.src}
-            alt={image.caption}
-            style={{ width: '100px', height: 'auto', margin: '10px' }} // スタイル調整
-          />
+          <div key={index} className="w-16 sm:w-16 md:w-24">
+            <figure className="p-2">
+              <img
+                loading="lazy"
+                src={image.src}
+                alt={image.caption}
+                className="rounded-lg object-contain"
+              />
+            </figure>
+          </div>
         ))}
       </div>
-    </>
+    </div>
   );
 }
