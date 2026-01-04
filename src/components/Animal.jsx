@@ -1,70 +1,49 @@
-import React, { useEffect, useState } from 'react';
-import { Grid, Typography } from '@mui/material';
+import { useEffect, useState } from 'react';
 
 export default function Animal() {
-  const [imagePaths, setImagePaths] = useState([]); // JSONデータを保存するためのstate
+  const [imagePaths, setImagePaths] = useState([]);
 
-  // animals.jsonを読み込む
   useEffect(() => {
+    let cancelled = false;
     const loadImagePaths = async () => {
       try {
         const response = await fetch('aho.json');
         const data = await response.json();
-        setImagePaths(data.imagePaths); // 画像パスとキャプションをステートにセット
+        if (!cancelled) {
+          setImagePaths(data.imagePaths ?? []);
+        }
       } catch (err) {
-        console.error('画像データの読み込みに失敗しました:', err);
+        if (!cancelled) {
+          console.error('画像データの読み込みに失敗しました:', err);
+        }
       }
     };
 
     loadImagePaths();
+
+    return () => {
+      cancelled = true;
+    };
   }, []);
 
   return (
-    <Grid
-      container
-      spacing={2}
-      style={{
-        paddingLeft: '16px',
-        paddingRight: '16px',
-        margin: '0 auto', // 中央揃え
-        maxWidth: '1200px', // 全体の幅を制限
-      }}
-    >
-      {imagePaths.map((image, index) => (
-        <Grid
-          item
-          xs={4}
-          sm={3}
-          key={index}
-          style={{
-            textAlign: 'center',
-            marginBottom: '50px', // 下部の余白を追加
-          }}
-        >
-          <img
-            src={image.src}
-            alt={image.caption}
-            style={{
-              width: '80%', // 画像の幅を指定
-              height: 'auto', // アスペクト比を維持
-            }}
-          />
-          <Typography
-            variant="body1"
-            fontFamily="Hanazome"
-            sx={{
-              marginTop: '5px',
-              fontSize: {
-                xs: '1rem',
-                sm: '1.2rem',
-                md: '1.5rem',
-              },
-            }}
-          >
-            {image.caption}
-          </Typography>
-        </Grid>
-      ))}
-    </Grid>
+    <div className="mx-auto w-full max-w-6xl px-4 py-6">
+      <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-6">
+        {imagePaths.map((image, index) => (
+          <div key={index} className="flex flex-col items-center gap-2">
+            <img
+              loading="lazy"
+              src={image.src}
+              alt={image.caption}
+              className="w-full max-w-[160px] h-auto rounded-lg"
+            />
+
+            <p className="text-center font-hanazome text-base sm:text-lg md:text-xl text-base-content/80">
+              {image.caption}
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
   );
 }
