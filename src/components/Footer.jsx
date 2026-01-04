@@ -1,60 +1,28 @@
-import { Box, Typography, Container, Link } from '@mui/material';
-
 export default function Footer() {
   return (
-    <Box
-      component="footer"
-      sx={{
-        bgcolor: 'gray',
-        py: 3,
-      }}
-    >
-      <Container maxWidth="lg">
-        <Box
-          sx={{
-            textAlign: 'center',
-            mt: 2,
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-          }}
-        >
-          {/* 左側の画像 */}
-          <Box
-            component="img"
-            src="/images/usagi.png"
-            alt="usagi"
-            sx={{ width: 24, height: 24, mx: 1 }}
-          />
+    <footer className="footer footer-center bg-neutral text-neutral-content py-6">
+      <div className="flex flex-col items-center gap-2">
+        {/* 上：Xリンク（Hanazome） */}
+        <div className="flex items-center gap-2 font-hanazome">
+          <img src="/images/usagi.png" alt="" className="w-6 h-6" />
 
-          <Link
+          <a
             href="https://x.com/carrot__pyon_"
-            color="inherit"
             target="_blank"
-            sx={{ textDecoration: 'none', fontSize: '16px' }}
+            rel="noopener noreferrer"
+            className="link link-hover text-base"
           >
             作者のX（旧Twitter）
-          </Link>
+          </a>
 
-          {/* 右側の画像 */}
-          <Box
-            component="img"
-            src="/images/usagi.png"
-            alt="usagi"
-            sx={{ width: 24, height: 24, mx: 1 }}
-          />
-        </Box>
+          <img src="/images/usagi.png" alt="" className="w-6 h-6" />
+        </div>
 
-        <Typography
-          variant="subtitle1"
-          align="center"
-          color="white"
-          component="p"
-          sx={{ mt: 3 }}
-        >
+        {/* 下：コピーライト（標準フォント） */}
+        <p className="text-xs opacity-70 font-sans tracking-wide">
           Copyright © 2024 min
-        </Typography>
-      </Container>
-    </Box>
+        </p>
+      </div>
+    </footer>
   );
 }
