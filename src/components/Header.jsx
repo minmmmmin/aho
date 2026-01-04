@@ -1,146 +1,119 @@
-import * as React from 'react';
-import {
-  AppBar,
-  Toolbar,
-  Box,
-  Typography,
-  IconButton,
-  Drawer,
-  List,
-  ListItem,
-  ListItemButton,
-  ListItemText,
-} from '@mui/material';
-import MenuIcon from '@mui/icons-material/Menu';
-import { Link } from 'react-router-dom';
-import { useTheme, useMediaQuery } from '@mui/material';
+import { useEffect, useId, useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 
 const menuItems = [
   { to: '/', label: 'ホーム' },
   { to: '/about', label: 'しょうかい' },
   { to: '/animal', label: 'ずかん' },
-  // { to: "/news", label: "ミニゲーム" },
+  { to: '/news', label: 'ミニゲーム' },
   { to: '/question', label: 'よくある質問' },
   { to: '/goods', label: 'グッズ' },
   { to: '/inf', label: 'お問い合わせ' },
 ];
 
 export default function Header() {
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
-  const [open, setOpen] = React.useState(false);
+  const drawerId = useId();
+  const [open, setOpen] = useState(false);
+  const location = useLocation();
+
+  // ルート遷移したら閉じる（リンク押したのと同じ挙動に）
+  useEffect(() => {
+    setOpen(false);
+  }, [location.pathname]);
 
   return (
-    <Box>
-      {/* 一番上：タイトル（スマホは左にハンバーガー） */}
-      <Box
-        sx={{
-          display: 'flex',
-          alignItems: 'center',
-          px: 2,
-          py: 2,
-          borderBottom: '1px solid #eee',
-        }}
-      >
-        {/* 左：ハンバーガー or 空 */}
-        <Box sx={{ width: 48 }}>
-          {isMobile && (
-            <IconButton onClick={() => setOpen(true)}>
-              <MenuIcon />
-            </IconButton>
-          )}
-        </Box>
+    <header className="w-full">
+      <div className="drawer">
+        <input
+          id={drawerId}
+          type="checkbox"
+          className="drawer-toggle"
+          checked={open}
+          onChange={(e) => setOpen(e.target.checked)}
+        />
 
-        {/* 中央：タイトル */}
-        <Typography
-          component={Link}
-          to="/"
-          sx={{
-            fontFamily: 'Hanazome',
-            textDecoration: 'none',
-            color: 'black',
-            fontSize: { xs: '24px', sm: '32px' },
-            fontWeight: 'bold',
-            mx: 'auto',
-          }}
-        >
-          あほっこ動物
-        </Typography>
+        {/* 画面側 */}
+        <div className="drawer-content">
+          {/* 上段：タイトル行 */}
+          <div className="flex items-center px-4 py-4 border-b border-base-300">
+            {/* 左：スマホだけハンバーガー（PCは空のまま幅だけ確保） */}
+            <div className="w-12">
+              <label
+                htmlFor={drawerId}
+                className="btn btn-ghost btn-square md:hidden"
+                aria-label="メニューを開く"
+              >
+                {/* ハンバーガーアイコン（SVG） */}
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-6 w-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M4 6h16M4 12h16M4 18h16"
+                  />
+                </svg>
+              </label>
+            </div>
 
-        {/* 右：空（左と同じ幅） */}
-        <Box sx={{ width: 48 }} />
-      </Box>
+            {/* 中央：タイトル */}
+            <Link
+              to="/"
+              className="mx-auto text-2xl md:text-3xl font-bold no-underline text-base-content font-hanazome"
+            >
+              あほっこ動物
+            </Link>
 
-      {/* ヘッダー画像 */}
-      <Box
-        component="img"
-        src="/images/aho.png"
-        alt="Header Image"
-        sx={{
-          width: '100%',
-          height: { xs: '150px', sm: '200px', md: '250px' },
-          objectFit: 'cover',
-        }}
-      />
+            {/* 右：幅合わせ */}
+            <div className="w-12" />
+          </div>
 
-      {/* ナビゲーション（PCのみ表示） */}
-      {!isMobile && (
-        <AppBar
-          position="static"
-          sx={{
-            backgroundColor: '#fff',
-            boxShadow: 'none',
-            borderBottom: '1px solid #ddd',
-          }}
-        >
-          <Toolbar sx={{ justifyContent: 'center' }}>
-            <Box sx={{ display: 'flex', gap: '32px' }}>
+          {/* ヘッダー画像 */}
+          <img
+            src="/images/aho.png"
+            alt="あほっこ動物たちのヘッダー画像"
+            className="w-full h-[150px] sm:h-[200px] md:h-[250px] object-cover"
+          />
+
+          {/* PCナビ */}
+          <nav className="hidden md:flex justify-center border-b border-base-300 bg-base-100">
+            <div className="menu menu-horizontal px-2 gap-2">
               {menuItems.map(({ to, label }) => (
-                <Typography
+                <Link
                   key={to}
-                  component={Link}
                   to={to}
-                  sx={{
-                    fontFamily: 'Hanazome',
-                    textDecoration: 'none',
-                    color: 'black',
-                    fontSize: '18px',
-                    fontWeight: 'bold',
-                    '&:hover': { color: 'blue' },
-                  }}
+                  className="btn btn-ghost font-hanazome text-base font-bold"
                 >
                   {label}
-                </Typography>
+                </Link>
               ))}
-            </Box>
-          </Toolbar>
-        </AppBar>
-      )}
+            </div>
+          </nav>
+        </div>
 
-      {/* ドロワー（スマホ） */}
-      <Drawer anchor="left" open={open} onClose={() => setOpen(false)}>
-        <Box sx={{ width: 250 }}>
-          <List>
-            {menuItems.map((item) => (
-              <ListItem key={item.to} disablePadding>
-                <ListItemButton
-                  component={Link}
-                  to={item.to}
-                  onClick={() => setOpen(false)}
-                >
-                  <ListItemText
-                    primary={item.label}
-                    primaryTypographyProps={{
-                      fontFamily: 'Hanazome',
-                      fontSize: '18px',
-                    }}
-                  />
-                </ListItemButton>
-              </ListItem>
-            ))}
-          </List>
-        </Box>
-      </Drawer>
-    </Box>
+        {/* ドロワー側（スマホメニュー） */}
+        <div className="drawer-side md:hidden">
+          <label htmlFor={drawerId} className="drawer-overlay" />
+          <div className="w-72 min-h-full bg-base-100 p-4">
+            <div className="mb-3 text-lg font-bold font-hanazome">メニュー</div>
+
+            <ul className="menu gap-1">
+              {menuItems.map(({ to, label }) => (
+                <li key={to}>
+                  <Link to={to} className="font-hanazome text-base">
+                    {label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </header>
   );
 }
