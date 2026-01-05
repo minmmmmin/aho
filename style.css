@@ -1,161 +1,35 @@
 @import 'tailwindcss';
 @plugin "daisyui";
 
+@font-face {
+  font-family: 'Hanazome';
+  src: url('/hanazome.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
 html,
 body {
   height: 100%;
   margin: 0;
-}
-
-body {
-  font-family: 'Hanazome', sans-serif;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  margin: 0;
-  background-color: #f8f8f8;
-}
-
-@font-face {
   font-family: 'Hanazome';
-  src: url('hanazome.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
 }
 
-.wrapper {
+.news-content figure {
   display: flex;
   flex-direction: column;
-  min-height: 100%;
+  align-items: flex-start;
+  margin: 1em 0;
 }
 
-.main {
-  flex: 1;
-}
-
-footer {
-  text-align: center;
-  padding: 10px;
-  background-color: #555;
-  color: #fff;
-}
-
-.container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 15px;
-}
-
-.container img {
-  max-width: 150px;
+.news-content figure img {
+  max-width: 100%;
   height: auto;
-}
-
-.joke {
-  position: relative;
-  display: inline-block;
   margin: 0;
-  padding: 7px 10px;
-  min-width: 120px;
-  max-width: 300px;
-  color: #555;
-  font-size: 16px;
-  background: #fff;
-  border: solid 3px #555;
-  box-sizing: border-box;
-  word-wrap: break-word;
 }
 
-.joke:before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: -24px;
-  transform: translateY(-50%);
-  border: 12px solid transparent;
-  border-right: 12px solid #fff;
-  z-index: 2;
-}
-
-.joke:after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: -30px;
-  transform: translateY(-50%);
-  border: 14px solid transparent;
-  border-right: 14px solid #555;
-  z-index: 1;
-}
-
-.button {
-  display: flex;
-  justify-content: center;
-  align-items: baseline; /* これにするをボタンの上下配置がよくなったよ！！やったね！！ */
-  gap: 20px;
-  margin: 20px 100px;
-}
-
-.news {
-  font-family: 'Hanazome', sans-serif;
+.news-content figure figcaption {
+  width: 100%;
   text-align: left;
-}
-
-.about-text {
-  font-size: 18px;
-  line-height: 2;
-  color: #333;
-  text-align: center;
-  margin: 30px auto;
-  max-width: 70%;
-}
-
-.animal-gallery {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
-}
-
-.animal-item {
-  text-align: center;
-}
-
-.animal-image {
-  width: 250px;
-  height: auto;
-  margin: 10px;
-}
-
-.animal-caption {
-  margin-top: 5px;
-  font-size: 24px;
-  color: #555;
-}
-
-.line-image,
-.suzuri-image {
-  width: 300px;
-  height: auto;
-  margin: 10px 0;
-  object-fit: cover;
-}
-
-/* main.jsxで作ってるdiv#contentにスタイル当てる */
-/* #はidっていう意味 */
-#content {
-  height: 100%;
-}
-
-/* #contentの中の、子要素のdivにスタイル当てる */
-#content > div {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-}
-
-/* #contentの中の、子要素のdivの、3番目の子要素のdivにスタイル当てる */
-#content > div > div:nth-child(3) {
-  flex: 1;
+  margin-top: 0.5em;
 }
