@@ -1,97 +1,88 @@
-import React, { useState, useEffect } from 'react';
-import {
-  Container,
-  Typography,
-  Box,
-  Divider,
-  CircularProgress,
-} from '@mui/material';
+import { useEffect, useState } from 'react';
+import DOMPurify from 'dompurify';
 
-const Question = () => {
-  const [news, setNews] = useState(null);
+const API_URL = 'https://ahoaho.microcms.io/api/v1/question?limit=100';
+
+export default function Question() {
+  const [data, setData] = useState(null); // microCMSレスポンス全体
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const fetchNews = async () => {
+    let cancelled = false;
+
+    const fetchQuestions = async () => {
       try {
-        const response = await fetch(
-          `https://ahoaho.microcms.io/api/v1/question?limit=100`, // limitを追加
-          {
-            headers: {
-              'X-MICROCMS-API-KEY': import.meta.env.VITE_X_MICROCMS_API_KEY, // APIキーをしっかり管理！
-            },
+        setError(null);
+
+        const res = await fetch(API_URL, {
+          headers: {
+            'X-MICROCMS-API-KEY': import.meta.env.VITE_X_MICROCMS_API_KEY,
           },
-        );
+        });
 
-        if (!response.ok) {
-          throw new Error('お知らせの取得に失敗しました。');
-        }
+        if (!res.ok) throw new Error('お知らせの取得に失敗しました。');
 
-        const data = await response.json();
-        setNews(data);
-      } catch (error) {
-        console.error('Error fetching content:', error);
-        setError('お知らせの取得中にエラーが発生しました。');
+        const json = await res.json();
+        if (!cancelled) setData(json);
+      } catch (e) {
+        console.error('Error fetching content:', e);
+        if (!cancelled) setError('お知らせの取得中にエラーが発生しました。');
       }
     };
-    fetchNews();
+
+    fetchQuestions();
+    return () => {
+      cancelled = true;
+    };
   }, []);
 
   if (error) {
-    return <Typography color="error">{error}</Typography>;
+    return (
+      <div className="alert alert-error max-w-3xl mx-auto">
+        <span className="font-hanazome">{error}</span>
+      </div>
+    );
   }
 
-  if (!news?.contents) {
+  if (!data?.contents) {
     return (
-      <Box display="flex" justifyContent="center" my={4}>
-        <CircularProgress />
-      </Box>
+      <div className="flex justify-center py-10">
+        <span className="loading loading-spinner loading-lg" />
+      </div>
     );
   }
 
   return (
-    <Container maxWidth="md">
-      <Box my={4}>
-        <h3>みんなからの質問をまとめています</h3>
-        {news.contents.map((announcement) => (
-          <Box key={announcement.id} mb={4}>
-            <Box display="flex" alignItems="center" mb={1}>
-              <Typography
-                variant="body2"
-                color="textSecondary"
-                mr={2}
-                fontFamily="Hanazome"
-                textAlign="left"
-              >
-                {new Date(announcement.publishedAt).toLocaleDateString()}
-              </Typography>
-            </Box>
-            <Typography
-              variant="h5"
-              component="h2"
-              gutterBottom
-              fontFamily="Hanazome"
-              textAlign="left"
-            >
-              {announcement.title}
-            </Typography>
-            <Typography
-              variant="body1"
-              component="div"
-              gutterBottom
-              fontFamily="Hanazome"
-              textAlign="left"
-            >
-              <span
-                dangerouslySetInnerHTML={{ __html: announcement.content }}
-              />
-            </Typography>
-            <Divider />
-          </Box>
-        ))}
-      </Box>
-    </Container>
-  );
-};
+    <div className="mx-auto w-full max-w-3xl px-4 py-6 space-y-6">
+      <h3 className="text-left text-xl font-bold font-hanazome">
+        みんなからの質問をまとめています
+      </h3>
 
-export default Question;
+      <div className="space-y-4">
+        {data.contents.map((item) => (
+          <div key={item.id} className="card bg-base-100 shadow-sm">
+            <div className="card-body">
+              <div className="text-left text-sm text-base-content/60 font-hanazome">
+                {new Date(item.publishedAt).toLocaleDateString()}
+              </div>
+
+              <h2 className="text-left text-lg font-bold font-hanazome">
+                {item.title}
+              </h2>
+
+              {/* microCMSのHTML表示 */}
+              <div className="text-left font-hanazome leading-relaxed">
+                <div
+                  className="prose max-w-none news-content"
+                  dangerouslySetInnerHTML={{
+                    __html: DOMPurify.sanitize(item.content),
+                  }}
+                />
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
