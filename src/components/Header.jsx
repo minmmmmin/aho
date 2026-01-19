@@ -1,7 +1,7 @@
 import { useEffect, useId, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
-const menuItems = [
+const baseMenuItems = [
   { to: '/', label: 'ホーム' },
   { to: '/about', label: 'しょうかい' },
   { to: '/animal', label: 'ずかん' },
@@ -11,10 +11,34 @@ const menuItems = [
   { to: '/inf', label: 'お問い合わせ' },
 ];
 
+const iconMapping = {
+  ホーム: 'うきうきらびっと',
+  しょうかい: 'くまさん',
+  ずかん: 'うきうきもんきー',
+  ミニゲーム: 'とらくん',
+  よくある質問: 'もぐもぐりす',
+  グッズ: 'ひつじ',
+  お問い合わせ: 'piyo',
+};
+
 export default function Header() {
   const drawerId = useId();
   const [open, setOpen] = useState(false);
   const location = useLocation();
+  const [menuItems, setMenuItems] = useState(baseMenuItems);
+
+  useEffect(() => {
+    fetch('/aho.json')
+      .then((res) => res.json())
+      .then((data) => {
+        const iconMap = new Map(data.imagePaths.map((i) => [i.caption, i.src]));
+        const newMenuItems = baseMenuItems.map((item) => ({
+          ...item,
+          icon: iconMap.get(iconMapping[item.label]),
+        }));
+        setMenuItems(newMenuItems);
+      });
+  }, []);
 
   // ルート遷移したら閉じる（リンク押したのと同じ挙動に）
   useEffect(() => {
@@ -103,10 +127,16 @@ export default function Header() {
             <div className="mb-3 text-lg font-bold font-hanazome">メニュー</div>
 
             <ul className="menu gap-1">
-              {menuItems.map(({ to, label }) => (
+              {menuItems.map(({ to, label, icon }) => (
                 <li key={to}>
-                  <Link to={to} className="font-hanazome text-base">
-                    {label}
+                  <Link
+                    to={to}
+                    className="font-hanazome text-base flex items-center"
+                  >
+                    {icon && (
+                      <img src={`/${icon}`} alt="" className="w-6 h-6 mr-2" />
+                    )}
+                    <span>{label}</span>
                   </Link>
                 </li>
               ))}
