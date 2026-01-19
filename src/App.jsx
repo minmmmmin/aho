@@ -7,13 +7,13 @@ import {
 import Footer from './components/Footer';
 import Header from './components/Header';
 
-import Joke from './components/Joke';
-import News from './components/News';
-import About from './components/About';
-import Question from './components/Question';
+import JokeGame from './components/JokeGame';
+import NewsList from './components/NewsList';
+import AhoahoIntroduction from './components/AhoahoIntroduction';
+import Faq from './components/Faq';
 import Goods from './components/Goods';
-import Animal from './components/Animal';
-import Contact from './components/Contact';
+import AnimalZukan from './components/AnimalZukan';
+import ContactForm from './components/ContactForm';
 
 function Page({ title, children }) {
   return (
@@ -41,7 +41,7 @@ function Layout() {
 function Home() {
   return (
     <Page title="お知らせ">
-      <News />
+      <NewsList />
     </Page>
   );
 }
@@ -49,7 +49,7 @@ function Home() {
 function NewsPage() {
   return (
     <Page title="あほジェネレータ">
-      <Joke />
+      <JokeGame />
     </Page>
   );
 }
@@ -57,7 +57,7 @@ function NewsPage() {
 function AboutAho() {
   return (
     <Page title="あほっこ動物とは">
-      <About />
+      <AhoahoIntroduction />
     </Page>
   );
 }
@@ -65,7 +65,7 @@ function AboutAho() {
 function Zukan() {
   return (
     <Page title="動物ずかん">
-      <Animal />
+      <AnimalZukan />
     </Page>
   );
 }
@@ -73,7 +73,7 @@ function Zukan() {
 function QandA() {
   return (
     <Page title="よくある質問">
-      <Question />
+      <Faq />
     </Page>
   );
 }
@@ -89,7 +89,7 @@ function AhoGoods() {
 function Toiawase() {
   return (
     <Page title="お問い合わせ">
-      <Contact />
+      <ContactForm />
     </Page>
   );
 }
