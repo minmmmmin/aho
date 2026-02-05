@@ -1,6 +1,6 @@
 export default function Footer() {
   return (
-    <footer className="footer footer-center bg-neutral text-neutral-content py-6">
+    <footer className="footer footer-center bg-base-300 text-base-content py-6">
       <div className="flex flex-col items-center gap-2">
         {/* 上：Xリンク（Hanazome） */}
         <div className="flex items-center gap-2 font-hanazome">
@@ -18,7 +18,6 @@ export default function Footer() {
           <img src="/images/usagi.png" alt="" className="w-6 h-6" />
         </div>
 
-        {/* 下：コピーライト（標準フォント） */}
         <p className="text-xs opacity-70 font-sans tracking-wide">
           Copyright © 2024 min
         </p>
